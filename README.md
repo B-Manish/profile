@@ -3,3 +3,5 @@ https://www.youtube.com/watch?v=KWVJTRWILjU&ab_channel=AdrianTwarog
 https://www.youtube.com/watch?v=oWKDTR6UvU4&ab_channel=DeveloperFilip
 
 https://www.youtube.com/watch?v=0fYi8SGA20k&ab_channel=JavaScriptMastery for hosting
+
+https://hamishw.com/#project-1
