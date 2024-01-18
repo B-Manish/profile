@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 
 function Home() {
+  const [animationComplete, setAnimationComplete] = useState(false);
+  const [roleColor, setRoleColor] = useState("transparent");
+  const [highlightColor, setHighlightColor] = useState("cyan");
+
   return (
     <Box
       sx={{
@@ -22,42 +26,48 @@ function Home() {
         <Box sx={{ fontSize: "22px", color: "rgb(255 255 255)" }}>
           BATCHU MANISH
         </Box>
+
         <Box
           sx={{
             fontSize: "100px",
             color: "rgb(255 255 255)",
-            // fontFamily: 'Gotham',
+            // fontFamily: 'Gotham','
+            position: "relative",
           }}
         >
           Front-End Developer
-        </Box>
-        <motion.div
-          style={{
-            width: "0px",
-            // height: "100px",
-            backgroundColor: "cyan",
-            border: "1px solid red",
-            whiteSpace: "nowrap",
-          }}
-          animate={{
-            width: "1000px",
-          }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-          }}
-        >
-          {" "}
-          <Box
-            sx={{
-              fontSize: "100px",
-              color: "rgb(255 255 255)",
-              // fontFamily: 'Gotham',
+          <motion.div
+            style={{
+              width: "0px",
+              backgroundColor: highlightColor,
+              whiteSpace: "nowrap",
+              zIndex: "100",
+              position: "absolute",
+              top: "0",
+              left: "0",
+            }}
+            animate={{
+              width: "calc(100%)",
+            }}
+            transition={{
+              duration: 0.7,
+              ease: "easeInOut",
+            }}
+            onAnimationComplete={() => {
+              setRoleColor("rgb(255 255 255)");
+              setHighlightColor("transparent");
             }}
           >
-            Front-End Developer
-          </Box>
-        </motion.div>
+            <Box
+              sx={{
+                fontSize: "100px",
+                color: roleColor,
+              }}
+            >
+              Front-End Developer
+            </Box>
+          </motion.div>
+        </Box>
       </Box>
     </Box>
   );
