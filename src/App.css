@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+/* change here to change font globally */
+/* body {
+  color: green;
+} */
+
+.roboto {
+  color: white;
+  font-family: "Roboto Mono", monospace;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
