@@ -12,7 +12,14 @@ function Template({ page }) {
       }}
     >
       <Navbar />
-      {page}
+      <Box
+        sx={{
+          height: "calc(100vh - 79px)",
+          width: "100vw",
+        }}
+      >
+        {page}
+      </Box>
     </Grid>
   );
 }
