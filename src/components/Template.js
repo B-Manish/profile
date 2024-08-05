@@ -6,11 +6,9 @@ function Template({ page }) {
   return (
     <Grid
       container
-      xs={12}
       sx={{
         height: "100vh",
         background: "#0F172A",
-        border: "1px solid red",
       }}
     >
       <Navbar />
