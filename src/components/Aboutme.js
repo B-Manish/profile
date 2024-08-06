@@ -31,7 +31,7 @@ function Aboutme() {
       </Box>
       <Box sx={{ display: "flex" }}>
         <Box sx={{ width: "511px" }}>
-          <Box className="customdmsans" sx={{ fontWeight: "100" }}>
+          <Box className="customdmsans">
             Hello! My name is Brittany and I enjoy creating things that live on
             the internet. My interest in web development started back in 2012
             when I decided to try editing custom Tumblr themes — turns out

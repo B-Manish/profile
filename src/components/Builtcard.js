@@ -36,8 +36,8 @@ function Builtcard() {
           Haylon theme
         </Box>
         <Box
+          className="customdmsans"
           sx={{
-            // width: "100%",
             background: "#0D1A30",
             mb: "22px",
             borderRadius: "4px",
