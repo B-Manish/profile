@@ -6,7 +6,7 @@ import Builtcard from "./Builtcard";
 
 function Built() {
   return (
-    <Box sx={{ width: "1000px", border: "1px solid red" }}>
+    <Box sx={{ width: "1000px" }}>
       <Box
         sx={{
           display: "flex",

@@ -8,7 +8,7 @@ function Template({ page }) {
       container
       sx={{
         height: "100vh",
-        background: "#0F172A",
+        background: "#081324",
       }}
     >
       <Navbar />

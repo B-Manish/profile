@@ -37,15 +37,20 @@ function Builtcard() {
         </Box>
         <Box
           sx={{
-            height: "253px",
-            width: "100%",
-            border: "1px solid red",
-            background: "cyan",
+            // width: "100%",
+            background: "#0D1A30",
             mb: "22px",
+            borderRadius: "4px",
+            padding: "25px",
           }}
-        ></Box>
+        >
+          A web app for visualizing personalized Spotify data. View your top
+          artists, top tracks, recently played tracks, and detailed audio
+          information about each track. Create and save new playlists of
+          recommended tracks based on your existing playlists and more.
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-          <Box sx={{ display: "flex", border: "1px solid blue", mb: "10px" }}>
+          <Box sx={{ display: "flex", mb: "10px" }}>
             {technologies.map((technology, index) => (
               <Box
                 key={technology}

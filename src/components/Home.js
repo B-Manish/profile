@@ -8,11 +8,9 @@ function Home() {
     <>
       <Box
         sx={{
-          border: "1px solid yellow",
           height: "100%",
           display: "grid",
           placeItems: "center",
-          border: "1px solid red",
         }}
       >
         <Box>
@@ -44,12 +42,11 @@ function Home() {
       </Box>
       <Box
         sx={{
-          border: "1px solid yellow",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#0F172A",
+          background: "#081324",
         }}
       >
         <Aboutme />

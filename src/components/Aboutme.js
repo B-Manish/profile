@@ -5,7 +5,7 @@ import CustomDivider from "./Divider";
 
 function Aboutme() {
   return (
-    <Box sx={{ width: "900px", height: "500px", border: "1px solid red" }}>
+    <Box sx={{ width: "900px", height: "500px" }}>
       <Box
         sx={{
           display: "flex",
