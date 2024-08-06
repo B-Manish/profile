@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import "../App.css";
 import Aboutme from "./Aboutme";
+import Built from "./Built";
 function Home() {
   return (
     <>
@@ -44,12 +45,15 @@ function Home() {
       <Box
         sx={{
           border: "1px solid yellow",
-          display: "grid",
+          display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
+          alignItems: "center",
           background: "#0F172A",
         }}
       >
         <Aboutme />
+        <Built />
       </Box>
     </>
   );

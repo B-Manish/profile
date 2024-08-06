@@ -1,21 +1,33 @@
 import React from "react";
 import { Box } from "@mui/material";
 import "../App.css";
+import CustomDivider from "./Divider";
 
 function Aboutme() {
   return (
     <Box sx={{ width: "900px", height: "500px", border: "1px solid red" }}>
       <Box
-        sx={{ display: "flex", border: "1px solid grey", mb: "37px" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
         className="roboto"
       >
-        <Box sx={{ color: "#5BF2CE", fontSize: "24px", pt: "7px" }}>01.</Box>
+        <Box
+          sx={{
+            color: "#5BF2CE",
+            fontSize: "24px",
+          }}
+        >
+          01.
+        </Box>
         <Box
           className="customdmsans"
           sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
         >
           About me
         </Box>
+        <CustomDivider />
       </Box>
       <Box sx={{ display: "flex" }}>
         <Box sx={{ width: "511px" }}>
