@@ -32,6 +32,7 @@ function Built() {
         <CustomDivider />
       </Box>
       <Builtcard />
+      <Builtcard reverse />
     </Box>
   );
 }

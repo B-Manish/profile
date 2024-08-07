@@ -4,23 +4,35 @@ import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 
-function Builtcard() {
+function Builtcard({ reverse = false }) {
   const technologies = ["React", "Express", "Spotify API", "Styled Components"];
   return (
-    <Grid container sx={{ border: "1px solid red" }}>
-      <Grid
-        item
-        xs={6}
-        sx={{ border: "1px solid red", display: "grid", alignItems: "center" }}
+    <Box
+      sx={{
+        border: "1px solid red",
+        display: "flex",
+        flexDirection: reverse === true ? "row-reverse" : "row",
+      }}
+    >
+      <Box
+        sx={{
+          border: "1px solid red",
+          display: "grid",
+          alignItems: "center",
+          width: "50%",
+        }}
       >
-        <img src={Vscode} style={{ width: "100%" }} />
-      </Grid>
-      <Grid item xs={6}>
+        <img
+          src={Vscode}
+          style={{ width: reverse === false ? "120%" : "100%" }}
+        />
+      </Box>
+      <Box sx={{ width: "50%" }}>
         <Box
           sx={{
             width: "100%",
             color: "#5BF2CE",
-            textAlign: "right",
+            textAlign: reverse === true ? "left" : "right",
             fontSize: "13px",
             mb: "10px",
           }}
@@ -34,7 +46,7 @@ function Builtcard() {
             color: "#A7C3E5",
             fontWeight: "600",
             fontSize: "24px",
-            textAlign: "right",
+            textAlign: reverse === true ? "left" : "right",
             mb: "19px",
           }}
         >
@@ -54,7 +66,12 @@ function Builtcard() {
           information about each track. Create and save new playlists of
           recommended tracks based on your existing playlists and more.
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: reverse === true ? "flex-start" : "flex-end",
+          }}
+        >
           <Box sx={{ display: "flex", mb: "10px" }}>
             {technologies.map((technology, index) => (
               <Box
@@ -70,13 +87,18 @@ function Builtcard() {
             ))}
           </Box>
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: reverse === true ? "flex-start" : "flex-end",
+          }}
+        >
           <Box sx={{ display: "flex" }}>
             <GitHubIcon style={{ marginRight: "20px" }} /> <GitHubIcon />{" "}
           </Box>
         </Box>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }
 
