@@ -6,7 +6,7 @@ import Builtcard from "./Builtcard";
 
 function Built() {
   return (
-    <Box sx={{ width: "1000px" }}>
+    <Box sx={{ width: "80%", maxWidth: "1000px" }}>
       <Box
         sx={{
           display: "flex",
@@ -31,8 +31,8 @@ function Built() {
         </Box>
         <CustomDivider />
       </Box>
-      <Builtcard />
-      <Builtcard reverse />
+      <Builtcard margin="0 0 100px 0" />
+      <Builtcard reverse margin="0 0 100px 0" />
     </Box>
   );
 }

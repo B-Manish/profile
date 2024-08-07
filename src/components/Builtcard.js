@@ -4,30 +4,27 @@ import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 
-function Builtcard({ reverse = false }) {
+function Builtcard({ reverse = false, margin }) {
   const technologies = ["React", "Express", "Spotify API", "Styled Components"];
   return (
     <Box
       sx={{
-        border: "1px solid red",
         display: "flex",
         flexDirection: reverse === true ? "row-reverse" : "row",
+        margin: margin,
       }}
     >
       <Box
         sx={{
-          border: "1px solid red",
-          display: "grid",
+          display: "flex",
           alignItems: "center",
           width: "50%",
+          justifyContent: reverse === true && "right",
         }}
       >
-        <img
-          src={Vscode}
-          style={{ width: reverse === false ? "120%" : "100%" }}
-        />
+        <img src={Vscode} style={{ width: "120%" }} />
       </Box>
-      <Box sx={{ width: "50%" }}>
+      <Box sx={{ width: "50%", zIndex: "100" }}>
         <Box
           sx={{
             width: "100%",
