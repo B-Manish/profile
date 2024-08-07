@@ -2,13 +2,18 @@ import React, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Vscode from "../static/vscode.png";
 
 function Builtcard() {
   const technologies = ["React", "Express", "Spotify API", "Styled Components"];
   return (
     <Grid container sx={{ border: "1px solid red" }}>
-      <Grid item xs={6}>
-        l
+      <Grid
+        item
+        xs={6}
+        sx={{ border: "1px solid red", display: "grid", alignItems: "center" }}
+      >
+        <img src={Vscode} style={{ width: "100%" }} />
       </Grid>
       <Grid item xs={6}>
         <Box
