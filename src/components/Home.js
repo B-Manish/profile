@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import "../App.css";
 import Aboutme from "./Aboutme";
 import Built from "./Built";
+import Getintouch from "./GetinTouch";
 function Home() {
   return (
     <>
@@ -51,6 +52,7 @@ function Home() {
       >
         <Aboutme />
         <Built />
+        <Getintouch />
       </Box>
     </>
   );
