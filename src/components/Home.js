@@ -16,7 +16,7 @@ function Home() {
         }}
       >
         <Apple />
-        <Box>
+        {/* <Box>
           <Box className="roboto" sx={{ color: "#5BF2CE" }}>
             Hi, my name is
           </Box>
@@ -41,9 +41,9 @@ function Home() {
             designing) exceptional digital experiences. Currently, I’m focused
             on building accessible, human-centered products at Upstatement.
           </Box>
-        </Box>
+        </Box> */}
       </Box>
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -55,7 +55,7 @@ function Home() {
         <Aboutme />
         <Built />
         <Getintouch />
-      </Box>
+      </Box> */}
     </>
   );
 }
