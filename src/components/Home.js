@@ -4,6 +4,7 @@ import "../App.css";
 import Aboutme from "./Aboutme";
 import Built from "./Built";
 import Getintouch from "./GetinTouch";
+import Apple from "./Apple";
 function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ function Home() {
           placeItems: "center",
         }}
       >
+        <Apple />
         <Box>
           <Box className="roboto" sx={{ color: "#5BF2CE" }}>
             Hi, my name is
