@@ -5,7 +5,13 @@ import CustomDivider from "./Divider";
 
 function Aboutme() {
   return (
-    <Box sx={{ width: "75%", maxWidth: "900px", height: "500px" }}>
+    <Box
+      sx={{
+        width: "75%",
+        maxWidth: "900px",
+        height: "500px",
+      }}
+    >
       <Box
         sx={{
           display: "flex",

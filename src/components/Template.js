@@ -14,7 +14,7 @@ function Template({ page }) {
       <Navbar />
       <Box
         sx={{
-          height: "calc(100vh - 79px)",
+          height: "calc(100vh - 89px)",
           width: "100vw",
         }}
       >

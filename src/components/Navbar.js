@@ -14,9 +14,9 @@ function Navbar() {
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
-        height: "75px",
+        height: "85px",
         alignItems: "center",
-        padding: "20px 50px",
+        padding: "0 50px",
       }}
     >
       <img src={Logo} style={{ height: "40px", width: "40px" }} />
