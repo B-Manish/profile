@@ -55,7 +55,7 @@ function Home() {
         <Built />
         <Getintouch />
       </Box>
-      <Threed />
+      {/* <Threed /> */}
     </>
   );
 }
