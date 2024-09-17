@@ -38,11 +38,10 @@ function Aboutme() {
       <Box sx={{ display: "flex" }}>
         <Box sx={{ width: "511px" }}>
           <Box className="customdmsans">
-            Hello! My name is Brittany and I enjoy creating things that live on
-            the internet. My interest in web development started back in 2012
-            when I decided to try editing custom Tumblr themes — turns out
-            hacking together a custom reblog button taught me a lot about HTML &
-            CSS!
+            Hello! My name is Manishand I enjoy creating things that live on the
+            internet. My interest in web development started back in 2012 when I
+            decided to try editing custom Tumblr themes — turns out hacking
+            together a custom reblog button taught me a lot about HTML & CSS!
           </Box>
         </Box>
         <Box sx={{ width: "389px" }}>r</Box>

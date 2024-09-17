@@ -15,7 +15,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@gsap/react": "^2.1.1",
+    "@react-three/drei": "^9.111.3",
+    "@react-three/fiber": "^8.17.6",
+    "gsap": "^3.12.5",
+    "three": "^0.167.1"
   },
   "scripts": {
     "start": "react-scripts start",

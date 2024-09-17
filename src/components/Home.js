@@ -4,6 +4,7 @@ import "../App.css";
 import Aboutme from "./Aboutme";
 import Built from "./Built";
 import Getintouch from "./GetinTouch";
+import Threed from "./Threed";
 function Home() {
   return (
     <>
@@ -54,6 +55,7 @@ function Home() {
         <Built />
         <Getintouch />
       </Box>
+      <Threed />
     </>
   );
 }
