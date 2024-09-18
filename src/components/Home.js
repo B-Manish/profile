@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import "../App.css";
-import Aboutme from "./Aboutme";
-import Built from "./Built";
-import Getintouch from "./GetinTouch";
-import Threed from "./Threed";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 function Home() {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".customdmsans",
+      { opacity: 0, y: -30 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 1 }
+    );
+  }, []);
   return (
     <Box
       sx={{
