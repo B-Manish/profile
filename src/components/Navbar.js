@@ -3,9 +3,19 @@ import { Box } from "@mui/material";
 import "../App.css";
 import Logo from "../static/logo.png";
 import CustomButton from "./Custombutton";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 function Navbar() {
   const navbaritems = ["About", "Experience", "Work", "Contact"];
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".items",
+      { opacity: 0, y: -30 }, // Start from -100px (off-screen top)
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 } // Animate to the original position
+    );
+  }, []);
 
   return (
     <Box
@@ -31,6 +41,7 @@ function Navbar() {
                   display: "flex",
                   fontSize: "12px",
                 }}
+                className="items"
               >
                 <Box
                   sx={{
@@ -53,7 +64,9 @@ function Navbar() {
               </Box>
             );
           })}
-          <CustomButton text="Resume" padding="12px 16px" />
+          <Box className="items">
+            <CustomButton text="Resume" padding="12px 16px" />
+          </Box>
         </Box>
       </Box>
     </Box>
