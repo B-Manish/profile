@@ -6,6 +6,9 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Aboutme from "./Aboutme";
+import Built from "./Built";
+import Getintouch from "./GetinTouch";
 
 function Template({ page }) {
   return (
@@ -81,6 +84,20 @@ function Template({ page }) {
           }}
         />
       </Grid>
+      {/* <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "#081324",
+        }}
+      > */}
+      <Aboutme />
+      <Built />
+      <Getintouch />
+      {/* </Box> */}
+      {/* <Threed /> */}
     </Grid>
   );
 }

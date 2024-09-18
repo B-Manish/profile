@@ -1,57 +1,66 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
 import profile from "../static/profile.JPG";
 function Aboutme() {
   return (
-    <Box
-      sx={{
-        width: "75%",
-        maxWidth: "900px",
-        height: "500px",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-        }}
-        className="roboto"
-      >
+    <Grid container sx={{ background: "#081324" }}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
-            color: "#5BF2CE",
-            fontSize: "24px",
+            width: "75%",
+            maxWidth: "900px",
+            height: "500px",
           }}
         >
-          01.
-        </Box>
-        <Box
-          className="customdmsans"
-          sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
-        >
-          About me
-        </Box>
-        <CustomDivider />
-      </Box>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ width: "511px" }}>
-          <Box className="customdmsans">
-            Hello! My name is Manish and I enjoy creating things that live on
-            the internet. My interest in web development started back in 2012
-            when I decided to try editing custom Tumblr themes — turns out
-            hacking together a custom reblog button taught me a lot about HTML &
-            CSS!
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+            className="roboto"
+          >
+            <Box
+              sx={{
+                color: "#5BF2CE",
+                fontSize: "24px",
+              }}
+            >
+              01.
+            </Box>
+            <Box
+              className="customdmsans"
+              sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
+            >
+              About me
+            </Box>
+            <CustomDivider />
+          </Box>
+          <Box sx={{ display: "flex" }}>
+            <Box sx={{ width: "511px" }}>
+              <Box className="customdmsans">
+                Hello! My name is Manish and I enjoy creating things that live
+                on the internet. My interest in web development started back in
+                2012 when I decided to try editing custom Tumblr themes — turns
+                out hacking together a custom reblog button taught me a lot
+                about HTML & CSS!
+              </Box>
+            </Box>
+            <Box sx={{ width: "389px", padding: "0 0 0 30px" }}>
+              <Box>
+                <img
+                  src={profile}
+                  style={{ width: "300px", height: "300px" }}
+                />
+              </Box>
+            </Box>
           </Box>
         </Box>
-        <Box sx={{ width: "389px", padding: "0 0 0 30px" }}>
-          <Box>
-            <img src={profile} style={{ width: "300px", height: "300px" }} />
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+      </Grid>
+      <Grid item xs={1}></Grid>
+    </Grid>
   );
 }
 
