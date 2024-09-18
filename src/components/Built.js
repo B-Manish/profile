@@ -6,7 +6,7 @@ import Builtcard from "./Builtcard";
 
 function Built() {
   return (
-    <Grid container sx={{ background: "#081324" }}>
+    <Grid container sx={{ background: "#0A192F" }}>
       <Grid item xs={1}></Grid>
       <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box sx={{ width: "80%", maxWidth: "1000px" }}>

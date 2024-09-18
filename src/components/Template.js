@@ -16,7 +16,7 @@ function Template({ page }) {
       container
       sx={{
         height: "100vh",
-        background: "#081324",
+        background: "#0A192F",
       }}
     >
       <Navbar />
@@ -90,7 +90,7 @@ function Template({ page }) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#081324",
+          background: "#0A192F",
         }}
       > */}
       <Aboutme />
