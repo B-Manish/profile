@@ -31,10 +31,14 @@ function Template({ page }) {
             flexDirection: "column",
           }}
         >
-          <GitHubIcon sx={{ color: "#CBCBD7", mb: "15px" }} />
-          <LinkedInIcon sx={{ color: "#CBCBD7", mb: "15px" }} />
-          <XIcon sx={{ color: "#CBCBD7", mb: "15px" }} />
-          <InstagramIcon sx={{ color: "#CBCBD7" }} />
+          <GitHubIcon
+            sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+          />
+          <LinkedInIcon
+            sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+          />
+          <XIcon sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }} />
+          <InstagramIcon sx={{ color: "#CBCBD7", cursor: "pointer" }} />
         </Box>
         <Box
           sx={{
