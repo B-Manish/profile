@@ -15,6 +15,8 @@ function Navbar() {
       { opacity: 0, y: -30 }, // Start from -100px (off-screen top)
       { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 } // Animate to the original position
     );
+
+    gsap.fromTo(".logo", { opacity: 0 }, { opacity: 1, delay: "0.2" });
   }, []);
 
   return (
@@ -29,7 +31,11 @@ function Navbar() {
         padding: "0 50px",
       }}
     >
-      <img src={Logo} style={{ height: "40px", width: "40px" }} />
+      <img
+        src={Logo}
+        className="logo"
+        style={{ height: "40px", width: "40px" }}
+      />
       <Box>
         <Box sx={{ display: "flex" }}>
           {navbaritems?.map((item, index) => {

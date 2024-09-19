@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 function Home() {
   useGSAP(() => {
     gsap.fromTo(
-      ".customdmsans",
+      ".gg",
       { opacity: 0, y: -30 },
       { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 1 }
     );
@@ -21,26 +21,42 @@ function Home() {
       }}
     >
       <Box>
-        <Box className="roboto" sx={{ color: "#5BF2CE" }}>
+        <Box
+          className="gg"
+          sx={{ color: "#5BF2CE", fontFamily: '"Roboto Mono", monospace' }}
+        >
           Hi, my name is
         </Box>
         <Box
-          className="customdmsans"
+          className="gg"
           sx={{
             color: "#A7C3E5",
             fontSize: "80px",
             fontWeight: "600",
+            fontFamily: '"DM Sans", sans-serif',
           }}
         >
           Manish Batchu
         </Box>
         <Box
-          className="customdmsans"
-          sx={{ color: "#A19A8F", fontSize: "80px", fontWeight: "600" }}
+          className="gg"
+          sx={{
+            color: "#A19A8F",
+            fontSize: "80px",
+            fontWeight: "600",
+            fontFamily: '"DM Sans", sans-serif',
+          }}
         >
           I build things for the web
         </Box>
-        <Box className="customdmsans" sx={{ width: "517px" }}>
+        <Box
+          className="gg"
+          sx={{
+            width: "517px",
+            fontFamily: '"DM Sans", sans-serif',
+            color: "#CBCBD7",
+          }}
+        >
           I’m a software engineer specializing in building (and occasionally
           designing) exceptional digital experiences. Currently, I’m focused on
           building accessible, human-centered products at Upstatement.

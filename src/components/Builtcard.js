@@ -52,10 +52,11 @@ function Builtcard({ reverse = false, margin }) {
         <Box
           className="customdmsans"
           sx={{
-            background: "#0D1A30",
+            background: "#112240",
             mb: "22px",
             borderRadius: "4px",
             padding: "25px",
+            color: "#8892b0",
           }}
         >
           A web app for visualizing personalized Spotify data. View your top
