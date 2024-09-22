@@ -92,7 +92,7 @@ function Template({ page }) {
       <Aboutme />
       <Built />
       <Getintouch />
-      <Threed />
+      {/* <Threed /> */}
     </Grid>
   );
 }
