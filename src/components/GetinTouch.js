@@ -5,7 +5,7 @@ import CustomButton from "./Custombutton";
 
 function Getintouch() {
   return (
-    <Grid container sx={{ background: "#0A192F" }}>
+    <Grid container sx={{ background: "#0A192F", padding: "100px 0" }}>
       <Grid item xs={1}></Grid>
       <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box

@@ -52,11 +52,11 @@ const Test = ({
         position={[0, -1.4, 0]}
       >
         <Suspense
-          fallback={
-            <Html>
-              <Box>loading...</Box>
-            </Html>
-          }
+        // fallback={
+        //   <Html>
+        //     <Box>loading...</Box>
+        //   </Html>
+        // }
         >
           <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} />
         </Suspense>
