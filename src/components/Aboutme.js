@@ -1,53 +1,109 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React, { useRef } from "react";
+import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
+import profile from "../static/profile.JPG";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Aboutme() {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      containerRef.current,
+      {
+        opacity: 0,
+        // y: -20, // Start 10 pixels above the original position
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        // y: 0, // Move to the original position
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%", // Start animation when the top of the box reaches 85% down the viewport
+          end: "top 40%", // End animation when the top of the box reaches 40% down the viewport
+          scrub: true, // Smooth animation based on scroll position
+          // markers: true, // Optional: Show markers for debugging
+        },
+      }
+    );
+  }, []);
   return (
-    <Box
-      sx={{
-        width: "75%",
-        maxWidth: "900px",
-        height: "500px",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-        }}
-        className="roboto"
-      >
+    <Grid container sx={{ background: "#0A192F" }} className="ggg">
+      <Grid item xs={1}></Grid>
+      <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
-            color: "#5BF2CE",
-            fontSize: "24px",
+            width: "75%",
+            maxWidth: "900px",
+            height: "500px",
+            opacity: "0",
           }}
+          ref={containerRef}
         >
-          01.
-        </Box>
-        <Box
-          className="customdmsans"
-          sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
-        >
-          About me
-        </Box>
-        <CustomDivider />
-      </Box>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ width: "511px" }}>
-          <Box className="customdmsans">
-            Hello! My name is Brittany and I enjoy creating things that live on
-            the internet. My interest in web development started back in 2012
-            when I decided to try editing custom Tumblr themes — turns out
-            hacking together a custom reblog button taught me a lot about HTML &
-            CSS!
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: "20px",
+            }}
+            className="roboto"
+          >
+            <Box
+              sx={{
+                color: "#5BF2CE",
+                fontSize: "24px",
+              }}
+            >
+              01.
+            </Box>
+            <Box
+              className="customdmsans"
+              sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
+            >
+              About me
+            </Box>
+            <CustomDivider />
+          </Box>
+          <Box sx={{ display: "flex" }}>
+            <Box sx={{ width: "511px" }}>
+              <Box
+                className="customdmsans"
+                sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
+              >
+                Hello! My name is Manish, and I'm a frontend developer that
+                enjoys backend development and building code that requires
+                logical issue solving.
+              </Box>
+              <Box
+                className="customdmsans"
+                sx={{ fontWeight: "300", color: "#8892b0" }}
+              >
+                While I enjoy creating smooth, user-friendly interfaces, I am
+                most motivated by the difficulties of developing scalable,
+                efficient backend solutions. I enjoy solving challenging coding
+                issues and bridging the gap between the frontend and backend to
+                develop unified, high-performance apps.
+              </Box>
+            </Box>
+            <Box sx={{ width: "389px", padding: "0 0 0 30px" }}>
+              <Box>
+                <img
+                  src={profile}
+                  style={{ width: "300px", height: "300px" }}
+                />
+              </Box>
+            </Box>
           </Box>
         </Box>
-        <Box sx={{ width: "389px" }}>r</Box>
-      </Box>
-    </Box>
+      </Grid>
+      <Grid item xs={1}></Grid>
+    </Grid>
   );
 }
 
