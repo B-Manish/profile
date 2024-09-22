@@ -3,8 +3,9 @@ import { Box, Grid } from "@mui/material";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
+import Threed from "./Threed";
 
-function Builtcard({ reverse = false, margin }) {
+function Builtcard({ reverse = false, margin, iphone }) {
   const technologies = ["React", "Express", "Spotify API", "Styled Components"];
   return (
     <Box
@@ -22,9 +23,17 @@ function Builtcard({ reverse = false, margin }) {
           justifyContent: reverse === true && "right",
         }}
       >
-        <img src={Vscode} style={{ width: "120%" }} />
+        {iphone ? <Threed /> : <img src={Vscode} style={{ width: "120%" }} />}
       </Box>
-      <Box sx={{ width: "50%", zIndex: "100" }}>
+      <Box
+        sx={{
+          width: "50%",
+          zIndex: "100",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Box
           sx={{
             width: "100%",

@@ -42,14 +42,14 @@ const Test = ({
         ref={controlRef}
         enableZoom={false}
         enablePan={0.4}
-        rotateSpeed={0.4}
+        rotateSpeed={0.1}
         target={new THREE.Vector3(0, 0, 0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
       <group
         ref={groupRef}
         name={`${index === 1}?"small":"large"`}
-        position={[0, 0, 0]}
+        position={[0, -1.4, 0]}
       >
         <Suspense
           fallback={
@@ -58,7 +58,7 @@ const Test = ({
             </Html>
           }
         >
-          <Iphone scale={[0.8, 0.8, 0.8]} item={item} size={size} />
+          <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} />
         </Suspense>
       </group>
     </View>

@@ -34,7 +34,7 @@ function Built() {
             </Box>
             <CustomDivider />
           </Box>
-          <Builtcard margin="0 0 100px 0" />
+          <Builtcard margin="0 0 100px 0" iphone />
           <Builtcard reverse margin="0 0 100px 0" />
         </Box>
       </Grid>

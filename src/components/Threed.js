@@ -10,8 +10,6 @@ import { View } from "@react-three/drei";
 import yellowImg from "../static/yellow.jpg";
 
 const Threed = () => {
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const [selectedModel, setSelectedModel] = useState(0);
   const [size, setSize] = useState("small");
   const [model, setModel] = useState({
     title: "iPhone 15 Pro in Natural Titanium",
@@ -37,9 +35,9 @@ const Threed = () => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-        background: "black",
+        background: "#0A192F",
         overflowX: "hidden",
-        border: "1px solid red",
+        // border: "1px solid red",
       }}
     >
       <Box>
@@ -51,6 +49,7 @@ const Threed = () => {
           setRotationState={setLargeRotation}
           item={model}
           size={size}
+          height="600px"
         />
       </Box>
 
