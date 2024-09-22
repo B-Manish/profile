@@ -9,6 +9,8 @@ import {
 } from "@react-three/drei";
 import Lights from "./Lights";
 import Laptop from "./Laptop";
+import Laptoptwo from "./Laptoptwo";
+import Iphone from "./Iphone";
 import * as THREE from "three";
 
 const Test = ({
@@ -19,6 +21,7 @@ const Test = ({
   setRotationState,
   item,
   size,
+  height = "calc(80vh - 150px)",
   width = "450px",
 }) => {
   return (
@@ -26,7 +29,7 @@ const Test = ({
       index={index}
       id={gsapType}
       style={{
-        height: "calc(80vh - 150px)",
+        height: height,
         width: width,
       }}
     >
@@ -55,7 +58,7 @@ const Test = ({
             </Html>
           }
         >
-          <Laptop scale={[0.1, 0.1, 0.1]} item={item} size={size} />
+          <Iphone scale={[0.8, 0.8, 0.8]} item={item} size={size} />
         </Suspense>
       </group>
     </View>

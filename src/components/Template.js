@@ -9,6 +9,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Aboutme from "./Aboutme";
 import Built from "./Built";
 import Getintouch from "./GetinTouch";
+import Threed from "./Threed";
 
 function Template({ page }) {
   return (
@@ -88,20 +89,10 @@ function Template({ page }) {
           }}
         />
       </Grid>
-      {/* <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "#0A192F",
-        }}
-      > */}
       <Aboutme />
       <Built />
       <Getintouch />
-      {/* </Box> */}
-      {/* <Threed /> */}
+      <Threed />
     </Grid>
   );
 }

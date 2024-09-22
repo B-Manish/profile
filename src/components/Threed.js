@@ -20,15 +20,12 @@ const Threed = () => {
   });
 
   // camera control for the model view
-  const cameraControlSmall = useRef();
   const cameraControlLarge = useRef();
 
   // models
-  const small = useRef(new THREE.Group());
   const large = useRef(new THREE.Group());
 
   // rotation of each model
-  const [smallRotation, setSmallRotation] = useState(0);
   const [largeRotation, setLargeRotation] = useState(0);
 
   useGSAP(() => {
@@ -42,62 +39,33 @@ const Threed = () => {
         flexDirection: "column",
         background: "black",
         overflowX: "hidden",
-        height: "100vh",
+        border: "1px solid red",
       }}
     >
-      <Box
-        id="heading"
-        sx={{ opacity: "0", color: "#86868b", fontSize: "56px" }}
-        className="roboto"
-      >
-        Take a closer look.
+      <Box>
+        <Test
+          index={2}
+          groupRef={large}
+          gsapType="view2"
+          controlRef={cameraControlLarge}
+          setRotationState={setLargeRotation}
+          item={model}
+          size={size}
+        />
       </Box>
-      <Box
-        id="heading"
-        sx={{
-          opacity: "0",
-          display: "flex",
-          width: "65vw",
-        }}
-      >
-        <Box>
-          <Test
-            index={1}
-            groupRef={small}
-            gsapType="view1"
-            controlRef={cameraControlSmall}
-            setRotationState={setSmallRotation}
-            item={model}
-            size={size}
-            width="65vw"
-          />
-        </Box>
-        <Box>
-          <Test
-            index={2}
-            groupRef={large}
-            gsapType="view2"
-            controlRef={cameraControlLarge}
-            setRotationState={setLargeRotation}
-            item={model}
-            size={size}
-            width="65vw"
-          />
-        </Box>
 
-        <Canvas
-          style={{
-            position: "fixed",
-            top: "0",
-            bottom: "0",
-            left: "0",
-            right: "0",
-          }}
-          eventSource={document.getElementById("root")}
-        >
-          <View.Port />
-        </Canvas>
-      </Box>
+      <Canvas
+        style={{
+          position: "fixed",
+          top: "0",
+          bottom: "0",
+          left: "0",
+          right: "0",
+        }}
+        eventSource={document.getElementById("root")}
+      >
+        <View.Port />
+      </Canvas>
     </Box>
   );
 };
