@@ -76,7 +76,7 @@ function Navbar() {
         position: "fixed",
         fontFamily: '"Roboto Mono", monospace',
         backdropFilter: " blur(20px)",
-        boxShadow: !isAtTop && "0 4px 10px rgba(0, 0, 0, 0.1)",
+        boxShadow: !isAtTop && "0 4px 20px rgba(0, 0, 0, 0.3)",
         zIndex: "1000",
       }}
     >
