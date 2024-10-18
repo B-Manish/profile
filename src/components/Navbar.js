@@ -28,15 +28,16 @@ function Navbar() {
         justifyContent: "space-between",
         height: "85px",
         alignItems: "center",
-        padding: "0 50px",
+        position: "fixed",
       }}
     >
       <img
         src={Logo}
         className="logo"
-        style={{ height: "40px", width: "40px" }}
+        style={{ height: "40px", width: "40px", marginLeft: "50px" }}
       />
-      <Box>
+
+      <Box sx={{ marginRight: "50px" }}>
         <Box sx={{ display: "flex" }}>
           {navbaritems?.map((item, index) => {
             return (
