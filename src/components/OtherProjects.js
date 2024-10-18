@@ -37,37 +37,37 @@ function OtherProjects() {
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
     {
       heading: "Clone of cricbuzz",
       description:
-        "Made a clone of cricbuzz when an admin creates a matches and the user can monitor scores on the application.",
+        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
       skills: ["Angular", ".NET", "Swagger"],
     },
   ];
