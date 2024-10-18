@@ -10,6 +10,7 @@ import Aboutme from "./Aboutme";
 import Built from "./Built";
 import Getintouch from "./GetinTouch";
 import Threed from "./Threed";
+import OtherProjects from "./OtherProjects";
 
 function Template({ page }) {
   return (
@@ -91,6 +92,7 @@ function Template({ page }) {
       </Grid>
       <Aboutme />
       <Built />
+      <OtherProjects />
       <Getintouch />
       {/* <Threed /> */}
     </Grid>
