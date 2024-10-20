@@ -39,7 +39,7 @@ const PreLoader = ({ onComplete, showBM }) => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        background: "#0A192F",
+        background: "#020C1B",
       }}
     >
       <svg width="100" height="100" viewBox="0 0 200 200">
@@ -63,6 +63,7 @@ const PreLoader = ({ onComplete, showBM }) => {
             fontSize: "25px",
             color: "#5BF2CE",
             fontFamily: '"Roboto Mono", monospace',
+            fontWeight: "bold",
           }}
         >
           BM

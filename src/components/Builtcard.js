@@ -101,7 +101,8 @@ function Builtcard({ reverse = false, margin, iphone }) {
           }}
         >
           <Box sx={{ display: "flex" }}>
-            <GitHubIcon style={{ marginRight: "20px" }} /> <GitHubIcon />{" "}
+            <GitHubIcon style={{ marginRight: "20px", color: "white" }} />
+            <GitHubIcon style={{ color: "white" }} />
           </Box>
         </Box>
       </Box>

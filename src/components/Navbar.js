@@ -104,9 +104,10 @@ function Navbar() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            fontSize: "15px",
+            fontSize: "14px",
+            fontWeight: "bold",
             color: "#5BF2CE",
-            // fontFamily: '"Roboto Mono", monospace',
+            fontFamily: '"Roboto Mono", monospace',
           }}
         >
           BM
