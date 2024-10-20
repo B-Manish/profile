@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Grid } from "@mui/material";
 import Navbar from "./Navbar";
 import "../App.css";
@@ -11,9 +11,13 @@ import Built from "./Built";
 import Getintouch from "./GetinTouch";
 import Threed from "./Threed";
 import OtherProjects from "./OtherProjects";
+import Preloader from "./Preloader";
 
 function Template({ page }) {
-  return (
+  const [isLoaded, setIsLoaded] = useState(false);
+  return !isLoaded ? (
+    <Preloader onComplete={() => setIsLoaded(true)} />
+  ) : (
     <Grid
       container
       sx={{
