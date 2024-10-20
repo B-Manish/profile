@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Box, Typography } from "@mui/material";
 
-const PreLoader = ({ onComplete, showBM }) => {
+const PreLoader = ({ onComplete, setShowBM, setIsLoaded, showBM }) => {
   const hexagonRef = useRef(null);
   const bmRef = useRef(null);
 
@@ -15,13 +15,17 @@ const PreLoader = ({ onComplete, showBM }) => {
         strokeDashoffset: 0,
         duration: 2, // Hexagon drawing duration
         ease: "power1.inOut",
-        onComplete,
+        onComplete: () => {
+          setShowBM(true);
+          setTimeout(() => {
+            setIsLoaded(true);
+          }, 800);
+        },
       }
     );
   }, [onComplete]);
 
   useEffect(() => {
-    // Animate 'BM' letters when they appear
     if (showBM) {
       gsap.fromTo(
         bmRef.current,

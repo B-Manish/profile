@@ -5,7 +5,13 @@ import CustomButton from "./Custombutton";
 
 function Getintouch() {
   return (
-    <Grid container sx={{ background: "#0A192F", padding: "100px 0" }}>
+    <Grid
+      container
+      sx={{
+        background: "#0A192F",
+        padding: "100px 0 20px 0",
+      }}
+    >
       <Grid item xs={1}></Grid>
       <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box
@@ -49,8 +55,26 @@ function Getintouch() {
             inbox is always open. Whether you have a question or just want to
             say hi, I’ll try my best to get back to you!
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "100px",
+            }}
+          >
             <CustomButton text="Say Hello" />
+          </Box>
+          <Box
+            className="roboto"
+            sx={{
+              color: "grey",
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "12px",
+              // margin: "0 0 19px 0",
+            }}
+          >
+            Built by Batchu Manish
           </Box>
         </Box>
       </Grid>

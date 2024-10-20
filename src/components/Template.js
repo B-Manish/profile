@@ -15,15 +15,13 @@ import Preloader from "./Preloader";
 
 function Template({ page }) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showBM, setShowBM] = useState(true); // State to control 'BM' visibility
+  const [showBM, setShowBM] = useState(false); // State to control 'BM' visibility
 
   return !isLoaded ? (
     <Preloader
-      onComplete={() => {
-        setIsLoaded(true);
-        // setShowBM(true);
-      }}
       showBM={showBM}
+      setShowBM={setShowBM}
+      setIsLoaded={setIsLoaded}
     />
   ) : (
     <Grid
