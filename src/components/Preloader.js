@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Box, Typography } from "@mui/material";
 
-const PreLoader = () => {
+const PreLoader = ({ onComplete, showBM }) => {
   const hexagonRef = useRef(null);
   const bmRef = useRef(null);
-  const [showBM, setShowBM] = useState(false); // State to control 'BM' visibility
 
   useEffect(() => {
     // Animate the hexagon
@@ -16,12 +15,10 @@ const PreLoader = () => {
         strokeDashoffset: 0,
         duration: 2, // Hexagon drawing duration
         ease: "power1.inOut",
-        onComplete: () => {
-          setShowBM(true); // Show 'BM' after hexagon animation completes
-        },
+        onComplete,
       }
     );
-  }, []);
+  }, [onComplete]);
 
   useEffect(() => {
     // Animate 'BM' letters when they appear
@@ -45,12 +42,12 @@ const PreLoader = () => {
         background: "#0A192F",
       }}
     >
-      <svg width="300" height="300" viewBox="0 0 200 200">
+      <svg width="100" height="100" viewBox="0 0 200 200">
         <path
           ref={hexagonRef}
           d="M 100,10 L 170,55 L 170,145 L 100,190 L 30,145 L 30,55 Z"
           fill="none"
-          stroke="black"
+          stroke="#5BF2CE"
           strokeWidth="5"
         />
       </svg>
@@ -58,14 +55,14 @@ const PreLoader = () => {
       {showBM && (
         <Typography
           ref={bmRef}
-          variant="h1"
           sx={{
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            fontWeight: "bold",
-            fontSize: "3rem",
+            fontSize: "25px",
+            color: "#5BF2CE",
+            fontFamily: '"Roboto Mono", monospace',
           }}
         >
           BM

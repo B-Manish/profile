@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import "../App.css";
 import Logo from "../static/logo.png";
 import CustomButton from "./Custombutton";
@@ -80,11 +80,38 @@ function Navbar() {
         zIndex: "1000",
       }}
     >
-      <img
-        src={Logo}
-        className="logo"
-        style={{ height: "40px", width: "40px", marginLeft: "50px" }}
-      />
+      <Box
+        sx={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginLeft: "50px",
+        }}
+      >
+        <svg width="50" height="50" viewBox="0 0 200 200">
+          <path
+            d="M 100,10 L 170,55 L 170,145 L 100,190 L 30,145 L 30,55 Z"
+            fill="none"
+            stroke="#5BF2CE"
+            strokeWidth="8"
+          />
+        </svg>
+
+        <Typography
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            fontSize: "15px",
+            color: "#5BF2CE",
+            // fontFamily: '"Roboto Mono", monospace',
+          }}
+        >
+          BM
+        </Typography>
+      </Box>
 
       <Box sx={{ marginRight: "50px" }}>
         <Box sx={{ display: "flex" }}>
