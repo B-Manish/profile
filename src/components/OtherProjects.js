@@ -104,7 +104,7 @@ function OtherProjects() {
           <Grid container>
             {otherprojects?.map((project, index) => {
               return (
-                <Grid item xs={4} sx={{ padding: "8px" }}>
+                <Grid item xs={12} md={6} lg={4} sx={{ padding: "8px" }}>
                   <OtherProjectsCard
                     heading={project.heading}
                     description={project.description}

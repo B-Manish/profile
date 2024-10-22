@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Box, Grid } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import Navbar from "./Navbar";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -14,12 +15,14 @@ import OtherProjects from "./OtherProjects";
 import Preloader from "./Preloader";
 
 function Template({ page }) {
+  const theme = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showBM, setShowBM] = useState(false); // State to control 'BM' visibility
 
   const [aboutRef, setAboutRef] = useState(useRef(null));
   const [builtRef, setBuiltRef] = useState(useRef(null));
   const [contactRef, setContactRef] = useState(useRef(null));
+  const isXsScreen = useMediaQuery("(max-width:599px)");
 
   return !isLoaded ? (
     <Preloader
@@ -35,38 +38,42 @@ function Template({ page }) {
         background: "#0A192F",
       }}
     >
-      <Navbar aboutRef={aboutRef} builtRef={builtRef} contactRef={contactRef}/>
+      <Navbar aboutRef={aboutRef} builtRef={builtRef} contactRef={contactRef} />
 
       <Grid item xs={1}>
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: "160px",
-            left: "85px",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <GitHubIcon
-            sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
-          />
-          <LinkedInIcon
-            sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
-          />
-          <XIcon sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }} />
-          <InstagramIcon sx={{ color: "#CBCBD7", cursor: "pointer" }} />
-        </Box>
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: "0px",
-            left: "95px",
-            display: "flex",
-            height: "140px",
-            width: "2px",
-            background: "grey",
-          }}
-        />
+        {!isXsScreen && (
+          <>
+            <Box
+              sx={{
+                position: "fixed",
+                bottom: "160px",
+                left: "85px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <GitHubIcon
+                sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+              />
+              <LinkedInIcon
+                sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+              />
+              <XIcon sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }} />
+              <InstagramIcon sx={{ color: "#CBCBD7", cursor: "pointer" }} />
+            </Box>
+            <Box
+              sx={{
+                position: "fixed",
+                bottom: "0px",
+                left: "95px",
+                display: "flex",
+                height: "140px",
+                width: "2px",
+                background: "grey",
+              }}
+            />
+          </>
+        )}
       </Grid>
       <Grid item xs={10}>
         <Box
@@ -78,31 +85,35 @@ function Template({ page }) {
         </Box>
       </Grid>
       <Grid item xs={1}>
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: "230px",
-            right: "20px",
-            color: "#A8B2D1",
-            fontSize: "12px",
-            rotate: "90deg",
-            display: "flex",
-          }}
-          className="roboto"
-        >
-          <Box> bmanish7777@gmail.com</Box>
-        </Box>
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: "0px",
-            right: "95px",
-            display: "flex",
-            height: "140px",
-            width: "2px",
-            background: "grey",
-          }}
-        />
+        {!isXsScreen && (
+          <>
+            <Box
+              sx={{
+                position: "fixed",
+                bottom: "230px",
+                right: "20px",
+                color: "#A8B2D1",
+                fontSize: "12px",
+                rotate: "90deg",
+                display: "flex",
+              }}
+              className="roboto"
+            >
+              <Box> bmanish7777@gmail.com</Box>
+            </Box>
+            <Box
+              sx={{
+                position: "fixed",
+                bottom: "0px",
+                right: "95px",
+                display: "flex",
+                height: "140px",
+                width: "2px",
+                background: "grey",
+              }}
+            />
+          </>
+        )}
       </Grid>
       <Aboutme setAboutRef={setAboutRef} />
       <Built setBuiltRef={setBuiltRef} />
