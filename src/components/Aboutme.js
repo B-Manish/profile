@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
@@ -9,8 +9,13 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Aboutme() {
+function Aboutme({ setAboutRef }) {
+  const mainRef = useRef(null);
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    setAboutRef(mainRef);
+  }, []);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -34,7 +39,12 @@ function Aboutme() {
     );
   }, []);
   return (
-    <Grid container sx={{ background: "#0A192F" }} className="ggg">
+    <Grid
+      container
+      sx={{ background: "#0A192F" }}
+      className="ggg"
+      ref={mainRef}
+    >
       <Grid item xs={1}></Grid>
       <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box

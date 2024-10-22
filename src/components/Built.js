@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
 import Builtcard from "./Builtcard";
 
-function Built() {
+function Built({ setBuiltRef }) {
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    setBuiltRef(mainRef);
+  }, []);
+
   return (
-    <Grid container sx={{ background: "#0A192F" }}>
+    <Grid container sx={{ background: "#0A192F" }} ref={mainRef}>
       <Grid item xs={1}></Grid>
       <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
         <Box sx={{ width: "80%", maxWidth: "1000px" }}>

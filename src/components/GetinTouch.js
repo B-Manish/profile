@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomButton from "./Custombutton";
 
-function Getintouch() {
+function Getintouch({ setContactRef }) {
+  const mainRef = useRef(null);
+  useEffect(() => {
+    setContactRef(mainRef);
+  }, []);
   return (
     <Grid
       container
+      ref={mainRef}
       sx={{
         background: "#0A192F",
         padding: "100px 0 20px 0",

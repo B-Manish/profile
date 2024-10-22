@@ -6,7 +6,7 @@ import CustomButton from "./Custombutton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-function Navbar() {
+function Navbar({ aboutRef, builtRef, contactRef }) {
   const navbaritems = ["About", "Experience", "Work", "Contact"];
 
   useGSAP(() => {
@@ -64,6 +64,17 @@ function Navbar() {
     };
   }, [scrollPosition, isAnimating]);
 
+  const handleScroll = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const getRef = (item) => {
+    if (item === "About") return aboutRef;
+    else if (item === "Work") return builtRef;
+    else if (item === "Contact") return contactRef;
+    else return aboutRef;
+  };
+
   return (
     <Box
       className="navbar"
@@ -119,6 +130,9 @@ function Navbar() {
           {navbaritems?.map((item, index) => {
             return (
               <Box
+                onClick={() => {
+                  handleScroll(getRef(item));
+                }}
                 sx={{
                   pr: "25px",
                   cursor: "pointer",

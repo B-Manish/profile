@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Box, Grid } from "@mui/material";
 import Navbar from "./Navbar";
 import "../App.css";
@@ -17,6 +17,10 @@ function Template({ page }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showBM, setShowBM] = useState(false); // State to control 'BM' visibility
 
+  const [aboutRef, setAboutRef] = useState(useRef(null));
+  const [builtRef, setBuiltRef] = useState(useRef(null));
+  const [contactRef, setContactRef] = useState(useRef(null));
+
   return !isLoaded ? (
     <Preloader
       showBM={showBM}
@@ -31,7 +35,7 @@ function Template({ page }) {
         background: "#0A192F",
       }}
     >
-      <Navbar />
+      <Navbar aboutRef={aboutRef} builtRef={builtRef} contactRef={contactRef}/>
 
       <Grid item xs={1}>
         <Box
@@ -100,10 +104,10 @@ function Template({ page }) {
           }}
         />
       </Grid>
-      <Aboutme />
-      <Built />
+      <Aboutme setAboutRef={setAboutRef} />
+      <Built setBuiltRef={setBuiltRef} />
       <OtherProjects />
-      <Getintouch />
+      <Getintouch setContactRef={setContactRef} />
       {/* <Threed /> */}
     </Grid>
   );
