@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Box, Grid } from "@mui/material";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import Navbar from "./Navbar";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -15,7 +15,6 @@ import OtherProjects from "./OtherProjects";
 import Preloader from "./Preloader";
 
 function Template({ page }) {
-  const theme = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showBM, setShowBM] = useState(false); // State to control 'BM' visibility
 
