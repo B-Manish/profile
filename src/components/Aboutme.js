@@ -125,6 +125,7 @@ function Aboutme({ setAboutRef }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                marginBottom: isMdScreen && "60px",
               }}
             >
               <Box
