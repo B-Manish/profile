@@ -34,7 +34,12 @@ function Built({ setBuiltRef }) {
             </Box>
             <Box
               className="customdmsans"
-              sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
+              sx={{
+                color: "#A7C3E5",
+                fontWeight: "600",
+                fontSize: "32px",
+                whiteSpace: "noWrap",
+              }}
             >
               Some Things I’ve Built
             </Box>

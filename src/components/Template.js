@@ -21,7 +21,7 @@ function Template({ page }) {
   const [aboutRef, setAboutRef] = useState(useRef(null));
   const [builtRef, setBuiltRef] = useState(useRef(null));
   const [contactRef, setContactRef] = useState(useRef(null));
-  const isXsScreen = useMediaQuery("(max-width:599px)");
+  const isMdScreen = useMediaQuery("(max-width:899px)");
 
   return !isLoaded ? (
     <Preloader
@@ -33,14 +33,14 @@ function Template({ page }) {
     <Grid
       container
       sx={{
-        height: "100vh",
+        minHeight: "100vh",
         background: "#0A192F",
       }}
     >
       <Navbar aboutRef={aboutRef} builtRef={builtRef} contactRef={contactRef} />
 
       <Grid item xs={1}>
-        {!isXsScreen && (
+        {!isMdScreen && (
           <>
             <Box
               sx={{
@@ -84,7 +84,7 @@ function Template({ page }) {
         </Box>
       </Grid>
       <Grid item xs={1}>
-        {!isXsScreen && (
+        {!isMdScreen && (
           <>
             <Box
               sx={{

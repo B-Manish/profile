@@ -15,7 +15,7 @@ function Home() {
   return (
     <Box
       sx={{
-        height: "100%",
+        height: "100vh",
         display: "grid",
         placeItems: "center",
       }}
@@ -34,6 +34,12 @@ function Home() {
             fontSize: "80px",
             fontWeight: "600",
             fontFamily: '"DM Sans", sans-serif',
+            // fontSize: {
+            //   xs: "14px", // small screens
+            //   sm: "16px", // medium screens
+            //   md: "18px", // larger screens
+            //   lg: "80px",
+            // },
           }}
         >
           Manish Batchu
@@ -52,7 +58,7 @@ function Home() {
         <Box
           className="gg"
           sx={{
-            width: "517px",
+            maxWidth: "517px",
             fontFamily: '"DM Sans", sans-serif',
             color: "#CBCBD7",
           }}

@@ -48,6 +48,7 @@ function Getintouch({ setContactRef }) {
               display: "flex",
               justifyContent: "center",
               margin: "0 0 10px 0",
+              whiteSpace: "noWrap",
             }}
           >
             Get In Touch

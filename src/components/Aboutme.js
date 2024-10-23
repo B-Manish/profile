@@ -6,12 +6,14 @@ import profile from "../static/profile.JPG";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useMediaQuery } from "@mui/material";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Aboutme({ setAboutRef }) {
   const mainRef = useRef(null);
   const containerRef = useRef(null);
+  const isMdScreen = useMediaQuery("(max-width:899px)");
 
   useEffect(() => {
     setAboutRef(mainRef);
@@ -51,7 +53,7 @@ function Aboutme({ setAboutRef }) {
           sx={{
             width: "75%",
             maxWidth: "900px",
-            height: "500px",
+            minHeight: "500px",
             opacity: "0",
           }}
           ref={containerRef}
@@ -74,14 +76,29 @@ function Aboutme({ setAboutRef }) {
             </Box>
             <Box
               className="customdmsans"
-              sx={{ color: "#A7C3E5", fontWeight: "600", fontSize: "32px" }}
+              sx={{
+                color: "#A7C3E5",
+                fontWeight: "600",
+                fontSize: "32px",
+                whiteSpace: "nowrap",
+              }}
             >
               About me
             </Box>
             <CustomDivider />
           </Box>
-          <Box sx={{ display: "flex" }}>
-            <Box sx={{ width: "511px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box sx={{ maxWidth: "511px" }}>
               <Box
                 className="customdmsans"
                 sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
@@ -101,13 +118,25 @@ function Aboutme({ setAboutRef }) {
                 develop unified, high-performance apps.
               </Box>
             </Box>
-            <Box sx={{ width: "389px", padding: "0 0 0 30px" }}>
-              <Box>
-                <img
-                  src={profile}
-                  style={{ width: "300px", height: "300px" }}
-                />
-              </Box>
+            <Box
+              sx={{
+                maxWidth: "389px",
+                padding: isMdScreen ? "25px 0 0 0" : "0 0 0 30px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  background: ` url(${profile})`,
+                  minHeight: "250px",
+                  minWidth: "250px",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
             </Box>
           </Box>
         </Box>
