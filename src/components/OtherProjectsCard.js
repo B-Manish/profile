@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import "../App.css";
 import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
 
@@ -8,8 +8,6 @@ function OtherProjectsCard({ heading, description, skills }) {
     <Box
       sx={{
         background: "#112240",
-        // height: "300px",
-        // width: "300px",
         padding: "30px",
         borderRadius: "10px",
       }}
@@ -37,12 +35,12 @@ function OtherProjectsCard({ heading, description, skills }) {
         sx={{
           color: "#99ACC3",
           fontSize: "16px",
-          mb: "19px",
+          mb: "16px",
         }}
       >
         {description}
       </Box>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         {skills?.map((skill, index) => {
           return (
             <Box
@@ -51,6 +49,7 @@ function OtherProjectsCard({ heading, description, skills }) {
               sx={{
                 marginRight: index !== skills.length - 1 && "20px",
                 fontSize: "13px",
+                padding: "3px 0",
               }}
             >
               {skill}

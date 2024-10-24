@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
@@ -6,9 +6,36 @@ import Builtcard from "./Builtcard";
 
 function Built({ setBuiltRef }) {
   const mainRef = useRef(null);
+  const [fontSize, setFontSize] = useState(32);
 
   useEffect(() => {
     setBuiltRef(mainRef);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+
+      // Increase font size gradually based on screen width
+      if (width < 600) {
+        setFontSize(16);
+      } else if (width < 960) {
+        setFontSize(20);
+      } else if (width < 1280) {
+        setFontSize(24);
+      } else if (width < 1920) {
+        setFontSize(28);
+      } else {
+        setFontSize(32);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Initial call to set the correct size on load
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -27,7 +54,7 @@ function Built({ setBuiltRef }) {
             <Box
               sx={{
                 color: "#5BF2CE",
-                fontSize: "24px",
+                fontSize: `${fontSize}px`,
               }}
             >
               03.
@@ -37,7 +64,7 @@ function Built({ setBuiltRef }) {
               sx={{
                 color: "#A7C3E5",
                 fontWeight: "600",
-                fontSize: "32px",
+                fontSize: `${fontSize + 4}px`,
                 whiteSpace: "noWrap",
               }}
             >

@@ -49,6 +49,12 @@ function Getintouch({ setContactRef }) {
               justifyContent: "center",
               margin: "0 0 10px 0",
               whiteSpace: "noWrap",
+              fontSize: {
+                xs: "40px", // small screens
+                sm: "45px", // medium screens
+                md: "50px", // larger screens
+                lg: "60px",
+              },
             }}
           >
             Get In Touch

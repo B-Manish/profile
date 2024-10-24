@@ -34,12 +34,12 @@ function Home() {
             fontSize: "80px",
             fontWeight: "600",
             fontFamily: '"DM Sans", sans-serif',
-            // fontSize: {
-            //   xs: "14px", // small screens
-            //   sm: "16px", // medium screens
-            //   md: "18px", // larger screens
-            //   lg: "80px",
-            // },
+            fontSize: {
+              xs: "35px", // small screens
+              sm: "50px", // medium screens
+              md: "65px", // larger screens
+              lg: "80px",
+            },
           }}
         >
           Manish Batchu
@@ -51,6 +51,12 @@ function Home() {
             fontSize: "80px",
             fontWeight: "600",
             fontFamily: '"DM Sans", sans-serif',
+            fontSize: {
+              xs: "30px", // small screens
+              sm: "45px", // medium screens
+              md: "60px", // larger screens
+              lg: "80px",
+            },
           }}
         >
           I build things for the web

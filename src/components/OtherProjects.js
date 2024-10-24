@@ -9,29 +9,23 @@ import OtherProjectsCard from "./OtherProjectsCard";
 gsap.registerPlugin(ScrollTrigger);
 
 function OtherProjects() {
-  //   const containerRef = useRef(null);
+  const gridItemRefs = useRef([]);
 
-  //   useGSAP(() => {
-  //     gsap.fromTo(
-  //       containerRef.current,
-  //       {
-  //         opacity: 0,
-  //         // y: -20, // Start 10 pixels above the original position
-  //       },
-  //       {
-  //         duration: 1,
-  //         opacity: 1,
-  //         // y: 0, // Move to the original position
-  //         scrollTrigger: {
-  //           trigger: containerRef.current,
-  //           start: "top 85%", // Start animation when the top of the box reaches 85% down the viewport
-  //           end: "top 40%", // End animation when the top of the box reaches 40% down the viewport
-  //           scrub: true, // Smooth animation based on scroll position
-  //           // markers: true, // Optional: Show markers for debugging
-  //         },
-  //       }
-  //     );
-  //   }, []);
+  const handleMouseEnter = (index) => {
+    gsap.to(gridItemRefs.current[index], {
+      scale: 1.02,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  };
+
+  const handleMouseLeave = (index) => {
+    gsap.to(gridItemRefs.current[index], {
+      scale: 1,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  };
 
   const otherprojects = [
     {
@@ -104,7 +98,17 @@ function OtherProjects() {
           <Grid container>
             {otherprojects?.map((project, index) => {
               return (
-                <Grid item xs={12} md={6} lg={4} sx={{ padding: "8px" }}>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  sx={{ padding: "8px", cursor: "pointer" }}
+                  key={index}
+                  ref={(el) => (gridItemRefs.current[index] = el)}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={() => handleMouseLeave(index)}
+                >
                   <OtherProjectsCard
                     heading={project.heading}
                     description={project.description}
