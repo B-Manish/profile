@@ -5,7 +5,6 @@ import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 import Threed from "./Threed";
-import zIndex from "@mui/material/styles/zIndex";
 
 function Builtcard({ reverse = false, margin, iphone }) {
   const technologies = ["React", "Express", "Spotify API", "Styled Components"];

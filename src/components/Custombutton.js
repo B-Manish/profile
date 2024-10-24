@@ -12,6 +12,9 @@ function CustomButton({ text, padding = "20px 28px" }) {
         borderRadius: "4px",
         fontSize: "14px",
         cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
       className="roboto"
     >

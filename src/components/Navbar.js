@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import "../App.css";
-import Logo from "../static/logo.png";
 import CustomButton from "./Custombutton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useMediaQuery } from "@mui/material";
+import CustomModal from "./CustomModal";
 
 function Navbar({ aboutRef, builtRef, contactRef }) {
   const navbaritems = ["About", "Experience", "Work", "Contact"];
+  const [openModal, setOpenModal] = useState(false);
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   useGSAP(() => {
     gsap.fromTo(
@@ -91,6 +94,53 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
         zIndex: "1000",
       }}
     >
+      <CustomModal open={openModal} handleClose={() => setOpenModal(false)}>
+        <Box sx={{ padding: "20px 0" }}>
+          {navbaritems?.map((item, index) => {
+            return (
+              <Box
+                onClick={() => {
+                  handleScroll(getRef(item));
+                  setOpenModal(false);
+                }}
+                sx={{
+                  cursor: "pointer",
+                  fontSize: "12px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mb: "15px",
+                }}
+              >
+                <Box
+                  sx={{
+                    color: "#5BF2CE",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  className="roboto"
+                >
+                  0{index + 1}.
+                </Box>
+                <Box
+                  sx={{
+                    color: "#A7C3E5",
+                    display: "flex",
+                    alignItems: "center",
+                    fontFamily: '"Roboto Mono", monospace',
+                  }}
+                >
+                  {item}
+                </Box>
+              </Box>
+            );
+          })}
+          <Box sx={{ padding: "0 20px", mt: "25px" }}>
+            <CustomButton text="Resume" padding="12px 16px" />
+          </Box>
+        </Box>
+      </CustomModal>
       <Box
         sx={{
           position: "relative",
@@ -124,49 +174,52 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
           BM
         </Typography>
       </Box>
-
-      <Box sx={{ marginRight: "50px" }}>
-        <Box sx={{ display: "flex" }}>
-          {navbaritems?.map((item, index) => {
-            return (
-              <Box
-                onClick={() => {
-                  handleScroll(getRef(item));
-                }}
-                sx={{
-                  pr: "25px",
-                  cursor: "pointer",
-                  display: "flex",
-                  fontSize: "12px",
-                }}
-                className="items"
-              >
+      {isSxScreen ? (
+        <Box onClick={() => setOpenModal(true)}>open</Box>
+      ) : (
+        <Box sx={{ marginRight: "50px" }}>
+          <Box sx={{ display: "flex" }}>
+            {navbaritems?.map((item, index) => {
+              return (
                 <Box
-                  sx={{
-                    color: "#5BF2CE",
-                    display: "flex",
-                    alignItems: "center",
+                  onClick={() => {
+                    handleScroll(getRef(item));
                   }}
-                >
-                  0{index + 1}.
-                </Box>
-                <Box
                   sx={{
-                    color: "#A7C3E5",
+                    pr: "25px",
+                    cursor: "pointer",
                     display: "flex",
-                    alignItems: "center",
+                    fontSize: "12px",
                   }}
+                  className="items"
                 >
-                  {item}
+                  <Box
+                    sx={{
+                      color: "#5BF2CE",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    0{index + 1}.
+                  </Box>
+                  <Box
+                    sx={{
+                      color: "#A7C3E5",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    {item}
+                  </Box>
                 </Box>
-              </Box>
-            );
-          })}
-          <Box className="items">
-            <CustomButton text="Resume" padding="12px 16px" />
+              );
+            })}
+            <Box className="items">
+              <CustomButton text="Resume" padding="12px 16px" />
+            </Box>
           </Box>
         </Box>
-      </Box>
+      )}
     </Box>
   );
 }

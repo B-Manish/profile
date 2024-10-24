@@ -17,7 +17,7 @@ const CustomModal = ({ open, handleClose, children }) => {
           sx={{
             minWidth: "230px",
             width: "40%",
-            background: "white",
+            background: "#112240",
             height: "100%",
           }}
         >
