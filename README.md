@@ -12,4 +12,6 @@ https://youtu.be/wpfE9XQuMBI?t=623
 
 https://youtu.be/RIP2W-cDqfM?t=475 - websites to download icons and svgs
 
-test2
+Known bugs:
+open navbar in mobile view and kepe expanding the screen size
+'Featured Project' z index in mobile view build card
