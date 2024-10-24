@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "@mui/material";
 import CustomModal from "./CustomModal";
+import CustomDivider from "./Divider";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Navbar({ aboutRef, builtRef, contactRef }) {
   const navbaritems = ["About", "Experience", "Work", "Contact"];
@@ -96,6 +98,18 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
     >
       <CustomModal open={openModal} handleClose={() => setOpenModal(false)}>
         <Box sx={{ padding: "20px 0" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              paddingRight: "50px",
+              mb: "30px",
+            }}
+            onClick={() => setOpenModal(false)}
+          >
+            <CloseIcon style={{ color: "#5BF2CE" }} />
+          </Box>
+
           {navbaritems?.map((item, index) => {
             return (
               <Box
@@ -175,7 +189,36 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
         </Typography>
       </Box>
       {isSxScreen ? (
-        <Box onClick={() => setOpenModal(true)}>open</Box>
+        <Box
+          onClick={() => setOpenModal(true)}
+          sx={{
+            display: "flex",
+            cursor: "pointer",
+            justifyContent: "flex-end",
+            flexDirection: "column",
+            mr: "50px",
+            mt: "5px",
+          }}
+        >
+          <CustomDivider
+            background="#5BF2CE"
+            margin="0 0 10px 0"
+            width="35px"
+            height="2.5px"
+          />
+          <CustomDivider
+            background="#5BF2CE"
+            margin="0 0 10px 10px"
+            width="25px"
+            height="2.5px"
+          />
+          <CustomDivider
+            background="#5BF2CE"
+            margin="0 0 10px 20px"
+            width="15px"
+            height="2.5px"
+          />
+        </Box>
       ) : (
         <Box sx={{ marginRight: "50px" }}>
           <Box sx={{ display: "flex" }}>
