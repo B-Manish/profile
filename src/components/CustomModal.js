@@ -1,7 +1,19 @@
-import React from "react";
-import { Modal, Fade } from "@mui/material";
-import { Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Modal, Slide, Box } from "@mui/material";
+
 const CustomModal = ({ open, handleClose, children }) => {
+  const [delayedOpen, setDelayedOpen] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (open) {
+      timer = setTimeout(() => setDelayedOpen(true), 100);
+    } else {
+      setDelayedOpen(false);
+    }
+    return () => clearTimeout(timer);
+  }, [open]);
+
   return (
     <Modal
       open={open}
@@ -12,7 +24,7 @@ const CustomModal = ({ open, handleClose, children }) => {
         timeout: 500,
       }}
     >
-      <Fade in={open}>
+      <Slide direction="left" in={delayedOpen} mountOnEnter unmountOnExit>
         <Box
           sx={{
             minWidth: "230px",
@@ -23,7 +35,7 @@ const CustomModal = ({ open, handleClose, children }) => {
         >
           {children}
         </Box>
-      </Fade>
+      </Slide>
     </Modal>
   );
 };

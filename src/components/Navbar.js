@@ -27,6 +27,12 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false); // To prevent multiple GSAP calls
   const [isAtTop, setIsAtTop] = useState(true); // New state to track if at top
+  const [rotate, setRotate] = useState(false);
+
+  const handleClick = () => {
+    setRotate((prev) => !prev);
+    setOpenModal(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,6 +110,7 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
               justifyContent: "flex-end",
               paddingRight: "50px",
               mb: "30px",
+              cursor: "pointer",
             }}
             onClick={() => setOpenModal(false)}
           >
@@ -190,7 +197,7 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
       </Box>
       {isSxScreen ? (
         <Box
-          onClick={() => setOpenModal(true)}
+          onClick={handleClick}
           sx={{
             display: "flex",
             cursor: "pointer",
@@ -198,6 +205,8 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
             flexDirection: "column",
             mr: "50px",
             mt: "5px",
+            transform: rotate ? "rotate(360deg)" : "rotate(0deg)",
+            transition: "transform 0.5s ease",
           }}
         >
           <CustomDivider
