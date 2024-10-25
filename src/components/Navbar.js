@@ -217,7 +217,7 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
             justifyContent: "flex-end",
             flexDirection: "column",
             mr: "50px",
-            mt: "5px",
+            mt: "10px",
             transform: `rotate(${rotationDegree}deg)`,
             transition: "transform 0.5s ease",
           }}
