@@ -27,11 +27,18 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false); // To prevent multiple GSAP calls
   const [isAtTop, setIsAtTop] = useState(true); // New state to track if at top
-  const [rotate, setRotate] = useState(false);
+  const [rotationDegree, setRotationDegree] = useState(0);
+  const [rotationDegreeClose, setRotationDegreeClose] = useState(0);
 
   const handleClick = () => {
-    setRotate((prev) => !prev);
+    setRotationDegree((prev) => prev + 360);
     setOpenModal(true);
+  };
+
+  const handleClickClose = () => {
+    setRotationDegreeClose((prev) => prev - 360);
+    setRotationDegree((prev) => prev - 360);
+    setOpenModal(false);
   };
 
   useEffect(() => {
@@ -112,9 +119,15 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
               mb: "30px",
               cursor: "pointer",
             }}
-            onClick={() => setOpenModal(false)}
           >
-            <CloseIcon style={{ color: "#5BF2CE" }} />
+            <CloseIcon
+              onClick={handleClickClose}
+              style={{
+                color: "#5BF2CE",
+                transform: `rotate(${rotationDegreeClose}deg)`,
+                transition: "transform 0.5s ease",
+              }}
+            />
           </Box>
 
           {navbaritems?.map((item, index) => {
@@ -205,7 +218,7 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
             flexDirection: "column",
             mr: "50px",
             mt: "5px",
-            transform: rotate ? "rotate(360deg)" : "rotate(0deg)",
+            transform: `rotate(${rotationDegree}deg)`,
             transition: "transform 0.5s ease",
           }}
         >

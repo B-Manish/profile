@@ -9,7 +9,7 @@ const CustomModal = ({ open, handleClose, children }) => {
     if (open) {
       timer = setTimeout(() => setDelayedOpen(true), 100);
     } else {
-      setDelayedOpen(false);
+      timer = setTimeout(() => setDelayedOpen(false), 100);
     }
     return () => clearTimeout(timer);
   }, [open]);
