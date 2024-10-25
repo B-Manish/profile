@@ -9,7 +9,7 @@ import CustomModal from "./CustomModal";
 import CustomDivider from "./Divider";
 import CloseIcon from "@mui/icons-material/Close";
 
-function Navbar({ aboutRef, builtRef, contactRef }) {
+function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
   const navbaritems = ["About", "Experience", "Work", "Contact"];
   const [openModal, setOpenModal] = useState(false);
   const isSxScreen = useMediaQuery("(max-width:599px)");
@@ -90,6 +90,7 @@ function Navbar({ aboutRef, builtRef, contactRef }) {
     if (item === "About") return aboutRef;
     else if (item === "Work") return builtRef;
     else if (item === "Contact") return contactRef;
+    else if (item === "Experience") return expRef;
     else return aboutRef;
   };
 

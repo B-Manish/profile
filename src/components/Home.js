@@ -31,13 +31,12 @@ function Home() {
           className="gg"
           sx={{
             color: "#A7C3E5",
-            fontSize: "80px",
             fontWeight: "600",
             fontFamily: '"DM Sans", sans-serif',
             fontSize: {
-              xs: "35px", // small screens
-              sm: "50px", // medium screens
-              md: "65px", // larger screens
+              xs: "35px",
+              sm: "50px",
+              md: "65px",
               lg: "80px",
             },
           }}
@@ -48,13 +47,12 @@ function Home() {
           className="gg"
           sx={{
             color: "#A19A8F",
-            fontSize: "80px",
             fontWeight: "600",
             fontFamily: '"DM Sans", sans-serif',
             fontSize: {
-              xs: "30px", // small screens
-              sm: "45px", // medium screens
-              md: "60px", // larger screens
+              xs: "30px",
+              sm: "45px",
+              md: "60px",
               lg: "80px",
             },
           }}

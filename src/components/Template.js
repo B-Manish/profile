@@ -13,6 +13,7 @@ import Getintouch from "./GetinTouch";
 import Threed from "./Threed";
 import OtherProjects from "./OtherProjects";
 import Preloader from "./Preloader";
+import Worked from "./Worked";
 
 function Template({ page }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,6 +22,7 @@ function Template({ page }) {
   const [aboutRef, setAboutRef] = useState(useRef(null));
   const [builtRef, setBuiltRef] = useState(useRef(null));
   const [contactRef, setContactRef] = useState(useRef(null));
+  const [expRef, setExpRef] = useState(useRef(null));
   const isMdScreen = useMediaQuery("(max-width:899px)");
 
   return !isLoaded ? (
@@ -37,7 +39,12 @@ function Template({ page }) {
         background: "#0A192F",
       }}
     >
-      <Navbar aboutRef={aboutRef} builtRef={builtRef} contactRef={contactRef} />
+      <Navbar
+        aboutRef={aboutRef}
+        builtRef={builtRef}
+        contactRef={contactRef}
+        expRef={expRef}
+      />
 
       <Grid item xs={1}>
         {!isMdScreen && (
@@ -115,6 +122,7 @@ function Template({ page }) {
         )}
       </Grid>
       <Aboutme setAboutRef={setAboutRef} />
+      <Worked setExpRef={setExpRef} />
       <Built setBuiltRef={setBuiltRef} />
       <OtherProjects />
       <Getintouch setContactRef={setContactRef} />
