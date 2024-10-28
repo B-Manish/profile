@@ -182,7 +182,7 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginLeft: "50px",
+          marginLeft: isSxScreen ? "30px" : "50px",
         }}
       >
         <svg width="50" height="50" viewBox="0 0 200 200">
@@ -217,7 +217,7 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
             cursor: "pointer",
             justifyContent: "flex-end",
             flexDirection: "column",
-            mr: "50px",
+            mr: "30px",
             mt: "10px",
             transform: `rotate(${rotationDegree}deg)`,
             transition: "transform 0.5s ease",

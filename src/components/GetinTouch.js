@@ -2,12 +2,16 @@ import React, { useRef, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomButton from "./Custombutton";
+import { useMediaQuery } from "@mui/material";
 
 function Getintouch({ setContactRef }) {
+  const isSxScreen = useMediaQuery("(max-width:599px)");
   const mainRef = useRef(null);
+
   useEffect(() => {
     setContactRef(mainRef);
   }, []);
+
   return (
     <Grid
       container
@@ -18,7 +22,15 @@ function Getintouch({ setContactRef }) {
       }}
     >
       <Grid item xs={1}></Grid>
-      <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid
+        item
+        xs={isSxScreen ? 12 : 10}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          padding: isSxScreen && "0 30px",
+        }}
+      >
         <Box
           sx={{
             display: "flex",

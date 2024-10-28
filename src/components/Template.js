@@ -24,6 +24,7 @@ function Template({ page }) {
   const [contactRef, setContactRef] = useState(useRef(null));
   const [expRef, setExpRef] = useState(useRef(null));
   const isMdScreen = useMediaQuery("(max-width:899px)");
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   return !isLoaded ? (
     <Preloader
@@ -81,7 +82,11 @@ function Template({ page }) {
           </>
         )}
       </Grid>
-      <Grid item xs={10}>
+      <Grid
+        item
+        xs={isSxScreen ? 12 : 10}
+        sx={{ padding: isSxScreen && "0 30px" }}
+      >
         <Box
           sx={{
             height: "calc(100vh - 89px)",
