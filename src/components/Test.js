@@ -8,6 +8,7 @@ import {
 } from "@react-three/drei";
 import Lights from "./Lights";
 import Iphone from "./Iphone";
+import Asus from "./Asus";
 import * as THREE from "three";
 
 const Test = ({
@@ -74,7 +75,8 @@ const Test = ({
       <CustomRotationControls />
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
-      <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+      {/* <PerspectiveCamera makeDefault position={[0, 0, 5]} for correct iphone values/> */}
+      <PerspectiveCamera makeDefault position={[1, 0, 3]} />
       <Lights />
       <OrbitControls
         makeDefault
@@ -99,7 +101,8 @@ const Test = ({
         //   </Html>
         // }
         >
-          <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} />
+          {/* <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} /> */}
+          <Asus scale={[0.6, 0.6, 0.6]} item={item} size={size} />
         </Suspense>
       </group>
     </View>
