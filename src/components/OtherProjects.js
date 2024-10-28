@@ -3,13 +3,14 @@ import { Box, Grid } from "@mui/material";
 import "../App.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import OtherProjectsCard from "./OtherProjectsCard";
+import { useMediaQuery } from "@mui/material";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function OtherProjects() {
   const gridItemRefs = useRef([]);
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   const handleMouseEnter = (index) => {
     gsap.to(gridItemRefs.current[index], {
@@ -70,8 +71,13 @@ function OtherProjects() {
       <Grid item xs={1}></Grid>
       <Grid
         item
-        xs={10}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        xs={isSxScreen ? 12 : 10}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: isSxScreen && "0 30px",
+        }}
       >
         <Box
           sx={{
@@ -79,7 +85,7 @@ function OtherProjects() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "80%",
+            width: isSxScreen ? "100%" : "80%",
             maxWidth: "1000px",
           }}
         >
@@ -103,7 +109,10 @@ function OtherProjects() {
                   xs={12}
                   md={6}
                   lg={4}
-                  sx={{ padding: "8px", cursor: "pointer" }}
+                  sx={{
+                    padding: isSxScreen ? "0 0 10px 0" : "8px",
+                    cursor: "pointer",
+                  }}
                   key={index}
                   ref={(el) => (gridItemRefs.current[index] = el)}
                   onMouseEnter={() => handleMouseEnter(index)}

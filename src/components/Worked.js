@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Worked({ setExpRef }) {
   const mainRef = useRef(null);
   const isMdScreen = useMediaQuery("(max-width:899px)");
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   useEffect(() => {
     setExpRef(mainRef);
@@ -27,10 +28,11 @@ function Worked({ setExpRef }) {
       <Grid item xs={1}></Grid>
       <Grid
         item
-        xs={10}
+        xs={isSxScreen ? 12 : 10}
         sx={{
           display: "flex",
           justifyContent: "center",
+          padding: isSxScreen && "0 30px",
         }}
       >
         <Box

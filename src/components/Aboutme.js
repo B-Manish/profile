@@ -14,6 +14,7 @@ function Aboutme({ setAboutRef }) {
   const mainRef = useRef(null);
   const containerRef = useRef(null);
   const isMdScreen = useMediaQuery("(max-width:899px)");
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   useEffect(() => {
     setAboutRef(mainRef);
@@ -48,10 +49,18 @@ function Aboutme({ setAboutRef }) {
       ref={mainRef}
     >
       <Grid item xs={1}></Grid>
-      <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid
+        item
+        xs={isSxScreen ? 12 : 10}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          padding: isSxScreen && "0 30px",
+        }}
+      >
         <Box
           sx={{
-            width: "75%",
+            width: isSxScreen ? "100%" : "75%",
             maxWidth: "900px",
             minHeight: "500px",
             opacity: "0",

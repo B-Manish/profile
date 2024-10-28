@@ -2,11 +2,13 @@ import React, { useRef, useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import "../App.css";
 import CustomDivider from "./Divider";
+import { useMediaQuery } from "@mui/material";
 import Builtcard from "./Builtcard";
 
 function Built({ setBuiltRef }) {
   const mainRef = useRef(null);
   const [fontSize, setFontSize] = useState(32);
+  const isSxScreen = useMediaQuery("(max-width:599px)");
 
   useEffect(() => {
     setBuiltRef(mainRef);
@@ -41,8 +43,21 @@ function Built({ setBuiltRef }) {
   return (
     <Grid container sx={{ background: "#0A192F" }} ref={mainRef}>
       <Grid item xs={1}></Grid>
-      <Grid item xs={10} sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ width: "80%", maxWidth: "1000px" }}>
+      <Grid
+        item
+        xs={isSxScreen ? 12 : 10}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          padding: isSxScreen && "0 30px",
+        }}
+      >
+        <Box
+          sx={{
+            width: isSxScreen ? "100%" : "80%",
+            maxWidth: "1000px",
+          }}
+        >
           <Box
             sx={{
               display: "flex",
