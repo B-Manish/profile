@@ -103,8 +103,6 @@ function Aboutme({ setAboutRef }) {
                 xs: "column",
                 md: "row",
               },
-              justifyContent: "center",
-              alignItems: "center",
             }}
           >
             <Box sx={{ maxWidth: "511px" }}>

@@ -107,7 +107,7 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
         fontFamily: '"Roboto Mono", monospace',
         backdropFilter: " blur(50px)",
         boxShadow: !isAtTop && "0 4px 20px rgba(0, 0, 0, 0.3)",
-        zIndex: "1000",
+        zIndex: "1001",
       }}
     >
       <CustomModal open={openModal} handleClose={() => setOpenModal(false)}>
