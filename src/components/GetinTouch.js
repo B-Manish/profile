@@ -12,6 +12,10 @@ function Getintouch({ setContactRef }) {
     setContactRef(mainRef);
   }, []);
 
+  const handleContactClick = () => {
+    window.location.href = "mailto:bmanish7777@gmail.com?subject=Contact%20Me";
+  };
+
   return (
     <Grid
       container
@@ -75,9 +79,8 @@ function Getintouch({ setContactRef }) {
             sx={{ textAlign: "center", margin: "0 0 48px 0" }}
             className="customdmsans"
           >
-            Although I’m not currently looking for any new opportunities, my
-            inbox is always open. Whether you have a question or just want to
-            say hi, I’ll try my best to get back to you!
+            I’m currently open to new opportunities! Whether you have a question
+            or want to discuss potential roles, feel free to reach out.
           </Box>
           <Box
             sx={{
@@ -86,7 +89,7 @@ function Getintouch({ setContactRef }) {
               marginBottom: "100px",
             }}
           >
-            <CustomButton text="Say Hello" />
+            <CustomButton text="Say Hello" clickHandler={handleContactClick} />
           </Box>
           <Box
             className="roboto"
