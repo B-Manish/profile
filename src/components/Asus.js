@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
+import vs from "../static/vscode.png";
 
 function Asus(props) {
   const { nodes, materials } = useGLTF("/models/asus.glb");
@@ -8,6 +9,8 @@ function Asus(props) {
   useEffect(() => {
     console.log("materials", materials);
   }, [materials]);
+
+  const screenTexture = useTexture(vs);
 
   return (
     <group {...props} dispose={null}>
@@ -169,7 +172,7 @@ function Asus(props) {
               castShadow
               receiveShadow
               geometry={nodes.Plane004_1.geometry}
-              material={materials.Display}
+              material={new THREE.MeshBasicMaterial({ map: screenTexture })}
             />
             <mesh
               castShadow
