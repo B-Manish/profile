@@ -6,8 +6,15 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 import Threed from "./Threed";
 
-function Builtcard({ reverse = false, margin, iphone }) {
-  const technologies = ["React", "Express", "Spotify API", "Styled Components"];
+function Builtcard({
+  reverse = false,
+  margin,
+  iphone,
+  technologies = ["React", "Express", "Spotify API", "Styled Components"],
+  heading = " Haylon theme",
+  description = "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
+  img = Vscode,
+}) {
   const isMdScreen = useMediaQuery("(max-width:899px)");
 
   return isMdScreen ? (
@@ -27,7 +34,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
           left: 0,
           right: 0,
           bottom: 0,
-          background: `linear-gradient(rgba(8,42,54, 0.5), rgba(8,42,54, 0.5)), url(${Vscode})`, // Custom tint + image
+          background: `linear-gradient(rgba(8,42,54, 0.5), rgba(8,42,54, 0.5)), url(${img})`, // Custom tint + image
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -60,7 +67,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
           whiteSpace: "nowrap",
         }}
       >
-        Haylon theme
+        {heading}
       </Box>
       <Box
         className="customdmsans"
@@ -70,10 +77,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
           color: "#8892b0",
         }}
       >
-        A web app for visualizing personalized Spotify data. View your top
-        artists, top tracks, recently played tracks, and detailed audio
-        information about each track. Create and save new playlists of
-        recommended tracks based on your existing playlists and more.
+        {description}
       </Box>
     </Box>
   ) : (
@@ -92,7 +96,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
           justifyContent: reverse === true && "right",
         }}
       >
-        {iphone ? <Threed /> : <img src={Vscode} style={{ width: "120%" }} />}
+        {iphone ? <Threed /> : <img src={img} style={{ width: "120%" }} />}
       </Box>
       <Box
         sx={{
@@ -127,7 +131,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
             whiteSpace: "nowrap",
           }}
         >
-          Haylon theme
+          {heading}
         </Box>
         <Box
           className="customdmsans"
@@ -139,10 +143,7 @@ function Builtcard({ reverse = false, margin, iphone }) {
             color: "#8892b0",
           }}
         >
-          A web app for visualizing personalized Spotify data. View your top
-          artists, top tracks, recently played tracks, and detailed audio
-          information about each track. Create and save new playlists of
-          recommended tracks based on your existing playlists and more.
+          {description}
         </Box>
         <Box
           sx={{

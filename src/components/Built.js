@@ -4,6 +4,7 @@ import "../App.css";
 import CustomDivider from "./Divider";
 import { useMediaQuery } from "@mui/material";
 import Builtcard from "./Builtcard";
+import Ecomm from "../static/ecomm.png";
 
 function Built({ setBuiltRef }) {
   const mainRef = useRef(null);
@@ -88,7 +89,15 @@ function Built({ setBuiltRef }) {
             <CustomDivider />
           </Box>
           <Builtcard margin="0 0 100px 0" iphone />
-          <Builtcard reverse margin="0 0 100px 0" />
+          <Builtcard margin="0 0 100px 0" />
+          <Builtcard
+            reverse
+            margin="0 0 100px 0"
+            img={Ecomm}
+            technologies={["React", "Fakestore API", "Context API", "MUI"]}
+            heading="Ecommerce website"
+            description="Developed a e-commerce website using React, with state management handled via Context API and Redux. Integrated the FakeStore API for product data, implementing features like product listings and shopping cart functionality. This project enhanced my skills in building scalable React applications and managing dynamic state effectively."
+          />
         </Box>
       </Grid>
       <Grid item xs={1}></Grid>
