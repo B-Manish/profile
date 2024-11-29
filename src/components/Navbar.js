@@ -206,7 +206,7 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
             fontFamily: '"Roboto Mono", monospace',
           }}
         >
-          BM
+          MB
         </Typography>
       </Box>
       {isSxScreen ? (
