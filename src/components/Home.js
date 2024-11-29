@@ -67,9 +67,9 @@ function Home() {
             color: "#CBCBD7",
           }}
         >
-          I’m a software engineer specializing in building (and occasionally
-          designing) exceptional digital experiences. Currently, I’m focused on
-          building accessible, human-centered products at Upstatement.
+          I am primarily a frontend developer with expertise in building
+          responsive, dynamic UIs and integrating REST APIs, while also
+          proficient in backend development for full-stack applications.
         </Box>
       </Box>
     </Box>
