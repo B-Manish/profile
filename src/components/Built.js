@@ -4,6 +4,9 @@ import "../App.css";
 import CustomDivider from "./Divider";
 import { useMediaQuery } from "@mui/material";
 import Builtcard from "./Builtcard";
+import Ecomm from "../static/ecomm.png";
+import Npm from "../static/npm.png";
+
 
 function Built({ setBuiltRef }) {
   const mainRef = useRef(null);
@@ -88,7 +91,23 @@ function Built({ setBuiltRef }) {
             <CustomDivider />
           </Box>
           <Builtcard margin="0 0 100px 0" iphone />
-          <Builtcard reverse margin="0 0 100px 0" />
+          <Builtcard
+            margin="0 0 100px 0"
+            heading="Custom Package"
+            reverse
+            img={Npm}
+            technologies={["React", "webpack", "npm"]}
+            npm
+            description="Developed a React package that optimizes rendering performance by implementing virtualization. This package allows for efficient rendering of large data sets by only displaying visible elements, significantly improving load times and reducing memory usage.This package is ideal for developers looking to enhance the performance of their React applications, especially those handling dynamic and large lists."
+          />
+          {/* <Builtcard
+            reverse
+            margin="0 0 100px 0"
+            img={Ecomm}
+            technologies={["React", "Fakestore API", "Context API", "MUI"]}
+            heading="Ecommerce website"
+            description="Developed a e-commerce website using React, with state management handled via Context API and Redux. Integrated the FakeStore API for product data, implementing features like product listings and shopping cart functionality. This project enhanced my skills in building scalable React applications and managing dynamic state effectively."
+          /> */}
         </Box>
       </Grid>
       <Grid item xs={1}></Grid>

@@ -18,6 +18,19 @@ function Worked({ setExpRef }) {
     setExpRef(mainRef);
   }, []);
 
+  const projectExperience = [
+    "Collaborated with my colleague and team lead to build a documentation portal for our client’s product using Docusaurus (a static website generator).",
+    // "Successfully launched the documentation portal within a few months.",
+    // "Worked for 1.5 years on the UI for Covalent, a Python package that enhances performance by running Python workflows on the cloud.",
+    "Contributed to building a web application that visualizes and interacts with Covalent’s functionality.",
+    // "Utilized React for frontend development.",
+    "Implemented state management using Redux and Context API.",
+    "Integrated REST APIs provided by the client into the web application.",
+    "Focused on virtualization to handle dynamic updates in the DOM.",
+    // "Engaged in GitHub source control activities such as push, pull, branch merges, and PR approvals.",
+    "Employed Jest for unit testing to ensure code quality.",
+  ];
+
   return (
     <Grid
       container
@@ -113,7 +126,7 @@ function Worked({ setExpRef }) {
               </Grid>
             )}
 
-            <Grid item xs={isMdScreen ? 12 : 9}>
+            <Grid item xs={isMdScreen ? 12 : 9} sx={{ mb: "50px" }}>
               <Box
                 className="customdmsans"
                 sx={{
@@ -136,18 +149,23 @@ function Worked({ setExpRef }) {
               >
                 June 2023 - Present
               </Box>
-
-              <Box sx={{ display: "flex" }}>
-                <Box sx={{ paddingRight: "17px" }}>
-                  <PlayArrowIcon
-                    style={{ color: "#64FFDA", fontSize: "12px" }}
-                  />
-                </Box>
-                <Box sx={{ color: "#8892b0" }} className="customdmsans">
-                  Worked on docusaurus,react and played a major role in
-                  development of its heavy state based logic requirements.
-                </Box>
-              </Box>
+              {projectExperience.map((item) => {
+                return (
+                  <Box sx={{ display: "flex" }}>
+                    <Box sx={{ paddingRight: "10px" }}>
+                      <PlayArrowIcon
+                        style={{ color: "#64FFDA", fontSize: "12px" }}
+                      />
+                    </Box>
+                    <Box
+                      sx={{ color: "#8892b0", mb: "5px" }}
+                      className="customdmsans"
+                    >
+                      {item}
+                    </Box>
+                  </Box>
+                );
+              })}
             </Grid>
           </Grid>
         </Box>

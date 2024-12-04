@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import OtherProjectsCard from "./OtherProjectsCard";
 import { useMediaQuery } from "@mui/material";
+import { Height } from "@mui/icons-material";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,34 +31,10 @@ function OtherProjects() {
 
   const otherprojects = [
     {
-      heading: "Clone of cricbuzz",
+      heading: "Ecommerce website",
       description:
-        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
-      skills: ["Angular", ".NET", "Swagger"],
-    },
-    {
-      heading: "Clone of cricbuzz",
-      description:
-        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
-      skills: ["Angular", ".NET", "Swagger"],
-    },
-    {
-      heading: "Clone of cricbuzz",
-      description:
-        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
-      skills: ["Angular", ".NET", "Swagger"],
-    },
-    {
-      heading: "Clone of cricbuzz",
-      description:
-        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
-      skills: ["Angular", ".NET", "Swagger"],
-    },
-    {
-      heading: "Clone of cricbuzz",
-      description:
-        "Made a clone of cricbuzz where an admin creates a matches and the user can monitor scores on the application.",
-      skills: ["Angular", ".NET", "Swagger"],
+        "Developed a e-commerce website using React, with state management handled via Context API and Redux. Integrated the FakeStore API for product data, implementing features like product listings and shopping cart functionality. This project enhanced my skills in building scalable React applications and managing dynamic state effectively.",
+      skills: ["React", "Fakestore API", "Context API", "MUI"],
     },
     {
       heading: "Clone of cricbuzz",
@@ -112,6 +89,8 @@ function OtherProjects() {
                   sx={{
                     padding: isSxScreen ? "0 0 10px 0" : "8px",
                     cursor: "pointer",
+                    display: "flex",
+                    alignItems: "stretch",
                   }}
                   key={index}
                   ref={(el) => (gridItemRefs.current[index] = el)}

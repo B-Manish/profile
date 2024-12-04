@@ -80,7 +80,7 @@ const PreLoader = ({ onComplete, setShowBM, setIsLoaded, showBM }) => {
               fontWeight: "bold",
             }}
           >
-            BM
+            MB
           </Typography>
         )}
       </Box>

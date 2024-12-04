@@ -10,6 +10,8 @@ function OtherProjectsCard({ heading, description, skills }) {
         background: "#112240",
         padding: "30px",
         borderRadius: "10px",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Box
@@ -40,7 +42,7 @@ function OtherProjectsCard({ heading, description, skills }) {
       >
         {description}
       </Box>
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", mt: "auto" }}>
         {skills?.map((skill, index) => {
           return (
             <Box
