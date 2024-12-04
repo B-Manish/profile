@@ -49,8 +49,8 @@ const Threed = () => {
           setRotationState={setLargeRotation}
           item={model}
           size={size}
-          height="350px"
-          width="500px"
+          height="650px"
+          width="300px"
         />
       </Box>
 

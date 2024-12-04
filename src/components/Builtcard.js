@@ -111,9 +111,9 @@ function Builtcard({
     >
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          width: "100%",
+          // display: "flex",
+          // alignItems: "center",
+          width: "50%",
           justifyContent: reverse === true && "right",
         }}
       >

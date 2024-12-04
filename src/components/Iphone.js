@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import wp from "../static/wp.jpg";
+import wp from "../static/npmmobile.png";
 
-function Iphone() {
+function Iphone(props) {
   const { nodes, materials } = useGLTF("/models/iphone.glb");
 
   // Load your custom textures
@@ -17,7 +17,7 @@ function Iphone() {
   // const metalTexture = useTexture("/textures/mic_texture.jpg");
 
   return (
-    <group dispose={null}>
+    <group {...props} dispose={null}>
       <group
         position={[0.051, 0.876, -0.29]}
         rotation={[Math.PI / 2, 0, -0.526]}
