@@ -47,8 +47,8 @@ const Test = ({
   function CustomRotationControls() {
     useFrame(() => {
       // Calculate target rotation based on mouse position
-      targetRotation.current.x = mousePosition.y * 0.05;
-      targetRotation.current.y = mousePosition.x * 0.05;
+      targetRotation.current.x = mousePosition.y * 0.15;
+      targetRotation.current.y = mousePosition.x * 0.15;
 
       // Smoothly interpolate the current rotation towards the target rotation
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
