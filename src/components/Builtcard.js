@@ -5,6 +5,7 @@ import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 import Threed from "./Threed";
+import Viewer from "./Viewer";
 
 function Builtcard({
   reverse = false,
@@ -116,7 +117,7 @@ function Builtcard({
           justifyContent: reverse === true && "right",
         }}
       >
-        {iphone ? <Threed /> : <img src={img} style={{ width: "120%" }} />}
+        {iphone ? <Viewer /> : <img src={img} style={{ width: "120%" }} />}
       </Box>
       <Box
         sx={{
