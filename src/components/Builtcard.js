@@ -4,6 +4,7 @@ import { useMediaQuery } from "@mui/material";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
+import Threed from "./Threed";
 
 function Builtcard({
   reverse = false,
@@ -214,7 +215,6 @@ function Builtcard({
                 <Npm />
               </Box>
             )}
-
           </Box>
         </Box>
       </Box>
