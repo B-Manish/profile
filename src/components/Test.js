@@ -45,21 +45,23 @@ const Test = ({
   }, []);
 
   function CustomRotationControls() {
+    const easeFactor = 0.02; // Control how quickly the rotation eases (0.05 for slow, 0.1 for faster)
+
     useFrame(() => {
       // Calculate target rotation based on mouse position
-      targetRotation.current.x = mousePosition.y * 0.15;
-      targetRotation.current.y = mousePosition.x * 0.15;
+      targetRotation.current.x = mousePosition.y * 0.2;
+      targetRotation.current.y = mousePosition.x * 0.2;
 
-      // Smoothly interpolate the current rotation towards the target rotation
+      // Smoothly interpolate the current rotation towards the target rotation using ease-in-out
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
         groupRef.current.rotation.x,
         targetRotation.current.x,
-        rotationSpeed // Adjust lerp factor for smoother/slower or faster transition
+        easeFactor // Smaller values make it smoother
       );
       groupRef.current.rotation.y = THREE.MathUtils.lerp(
         groupRef.current.rotation.y,
         targetRotation.current.y,
-        rotationSpeed
+        easeFactor
       );
     });
   }
