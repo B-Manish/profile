@@ -9,6 +9,7 @@ import {
 import Lights from "./Lights";
 import Iphone from "./Iphone";
 import Asus from "./Asus";
+import Plain from "./Plain";
 import * as THREE from "three";
 
 const Test = ({
@@ -21,7 +22,7 @@ const Test = ({
   size,
   height = "calc(80vh - 150px)",
   width = "450px",
-  rotationSpeed = "0.1",
+  rotationSpeed = "1",
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const targetRotation = useRef(new THREE.Euler(0, 0, 0)); // Store target rotation
@@ -73,7 +74,6 @@ const Test = ({
       }}
     >
       <CustomRotationControls />
-      {/* Ambient Light */}
       <ambientLight intensity={0.3} />
       {/* <PerspectiveCamera makeDefault position={[0, 0, 5]} for correct iphone values/> */}
       <PerspectiveCamera makeDefault position={[1, 0, 3]} />
@@ -91,18 +91,13 @@ const Test = ({
       <group
         ref={groupRef}
         name={`${index === 1}?"small":"large"`}
-        position={[0, -1.4, 0]}
+        // position={[0, -1.4, 0]} iphone correct position
         // rotation={[mousePosition.y * 0.05, mousePosition.x * 0.05, 0]} // Controls rotation intensity
+        position={[-7, -1.5, 0]}
       >
-        <Suspense
-        // fallback={
-        //   <Html>
-        //     <Box>loading...</Box>
-        //   </Html>
-        // }
-        >
+        <Suspense>
           {/* <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} /> */}
-          <Asus scale={[0.6, 0.6, 0.6]} item={item} size={size} />
+          <Plain item={item} size={size} />
         </Suspense>
       </group>
     </View>

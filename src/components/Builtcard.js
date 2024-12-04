@@ -117,7 +117,7 @@ function Builtcard({
           justifyContent: reverse === true && "right",
         }}
       >
-        {iphone ? <Viewer /> : <img src={img} style={{ width: "120%" }} />}
+        {iphone ? <Threed /> : <img src={img} style={{ width: "120%" }} />}
       </Box>
       <Box
         sx={{
