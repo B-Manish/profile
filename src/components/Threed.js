@@ -36,7 +36,7 @@ const Threed = () => {
         alignItems: "center",
         flexDirection: "column",
         background: "#0A192F",
-        overflowX: "hidden",
+        // overflowX: "hidden",
         // border: "1px solid red",
       }}
     >
@@ -49,7 +49,8 @@ const Threed = () => {
           setRotationState={setLargeRotation}
           item={model}
           size={size}
-          height="600px"
+          height="650px"
+          width="300px"
         />
       </Box>
 

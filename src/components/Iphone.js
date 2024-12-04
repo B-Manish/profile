@@ -1,11 +1,20 @@
 import * as THREE from "three";
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
+import wp from "../static/npmmobile.png";
 
 function Iphone(props) {
   const { nodes, materials } = useGLTF("/models/iphone.glb");
 
-  const texture = useTexture(props.item.img);
+  // Load your custom textures
+  const metalTexture = useTexture(wp);
+  // const metalTexture = useTexture("/textures/black_texture.jpg");
+  // const metalTexture = useTexture("/textures/glass_texture.jpg");
+  // const metalTexture = useTexture("/textures/blue_texture.jpg");
+  // const metalTexture = useTexture("/textures/screen_texture.jpg");
+  // const metalTexture = useTexture("/textures/camera_texture.jpg");
+  // const metalTexture = useTexture("/textures/lens_texture.jpg");
+  // const metalTexture = useTexture("/textures/mic_texture.jpg");
 
   return (
     <group {...props} dispose={null}>
@@ -18,141 +27,190 @@ function Iphone(props) {
           receiveShadow
           geometry={nodes.Plane.geometry}
           material={materials.metal}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane_1.geometry}
           material={materials.black}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane_2.geometry}
           material={materials.glass}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane_3.geometry}
           material={materials.blue}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane_4.geometry}
           material={materials.screen}
-        />
+        >
+          <meshStandardMaterial map={metalTexture} />
+        </mesh>
+
         <group position={[0.264, -0.127, -0.735]}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Plane001.geometry}
             material={materials["cam blue"]}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Plane001_1.geometry}
             material={materials.glass}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Plane001_2.geometry}
             material={materials.mic}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
         </group>
+
         <group position={[0.347, -0.155, -0.842]}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_1.geometry}
             material={materials.camera}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_2.geometry}
             material={materials.mat}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_3.geometry}
             material={materials.lens}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_4.geometry}
             material={materials.black}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle001_5.geometry}
             material={materials.glass}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
         </group>
+
         <group position={[0.16, -0.147, -0.726]} scale={0.047}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle002_1.geometry}
             material={materials["cam blue"]}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle002_2.geometry}
             material={materials["flash  blue"]}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle002_3.geometry}
             material={materials["flash orange.001"]}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle002_4.geometry}
             material={materials.glass}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
         </group>
+
         <group position={[0.347, -0.155, -0.61]}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle007.geometry}
             material={materials.camera}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle007_1.geometry}
             material={materials.mat}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle007_2.geometry}
             material={materials.lens}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle007_3.geometry}
             material={materials.black}
-          />
+          >
+            <meshStandardMaterial map={metalTexture} />
+          </mesh>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Circle007_4.geometry}
             material={materials.glass}
-          />
+          >
+            {/* <meshStandardMaterial map={metalTexture} /> */}
+          </mesh>
         </group>
+
         <mesh
           castShadow
           receiveShadow
@@ -160,7 +218,9 @@ function Iphone(props) {
           material={materials.metal}
           position={[-0.007, -0.125, 0.047]}
           rotation={[Math.PI / 2, 0, Math.PI]}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -169,7 +229,9 @@ function Iphone(props) {
           position={[0.11, -0.066, 1.129]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -178,7 +240,9 @@ function Iphone(props) {
           position={[-0.099, -0.066, 1.128]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
         <mesh
           castShadow
           receiveShadow
@@ -186,7 +250,9 @@ function Iphone(props) {
           material={materials.speaker}
           position={[-0.005, -0.006, -0.932]}
           rotation={[-Math.PI / 2, 0, 0]}
-        />
+        >
+          {/* <meshStandardMaterial map={metalTexture} /> */}
+        </mesh>
       </group>
     </group>
   );

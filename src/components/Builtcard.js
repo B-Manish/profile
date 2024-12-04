@@ -5,6 +5,7 @@ import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
 import Threed from "./Threed";
+import Viewer from "./Viewer";
 
 function Builtcard({
   reverse = false,
@@ -110,8 +111,8 @@ function Builtcard({
     >
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
+          // display: "flex",
+          // alignItems: "center",
           width: "50%",
           justifyContent: reverse === true && "right",
         }}
