@@ -37,7 +37,7 @@ const Threed = () => {
         flexDirection: "column",
         background: "#0A192F",
         // overflowX: "hidden",
-        border: "1px solid red",
+        // border: "1px solid red",
       }}
     >
       <Box>
