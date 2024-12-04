@@ -16,21 +16,21 @@ const Lights = () => {
            */}
           <Lightformer
             form="rect"
-            intensity={10}
-            position={[-1, 0, -10]}
+            intensity={0}
+            position={[-1, 0, -100]}
             scale={10}
             color={"#495057"}
           />
           <Lightformer
             form="rect"
-            intensity={10}
+            intensity={0}
             position={[-10, 2, 1]}
             scale={10}
             rotation-y={Math.PI / 2}
           />
           <Lightformer
             form="rect"
-            intensity={1}
+            intensity={0}
             position={[10, 0, 1]}
             scale={10}
             rotation-y={Math.PI / 2}

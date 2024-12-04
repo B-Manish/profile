@@ -76,7 +76,7 @@ const Test = ({
       <CustomRotationControls />
       <ambientLight intensity={0.3} />
       {/* <PerspectiveCamera makeDefault position={[0, 0, 5]} for correct iphone values/> */}
-      <PerspectiveCamera makeDefault position={[1, 0, 3]} />
+      <PerspectiveCamera makeDefault position={[0.2, 2, 4]} />
       <Lights />
       <OrbitControls
         makeDefault
@@ -92,8 +92,7 @@ const Test = ({
         ref={groupRef}
         name={`${index === 1}?"small":"large"`}
         // position={[0, -1.4, 0]} iphone correct position
-        // rotation={[mousePosition.y * 0.05, mousePosition.x * 0.05, 0]} // Controls rotation intensity
-        position={[-7, -1.5, 0]}
+        position={[-5.5, -2, 0.6]}
       >
         <Suspense>
           {/* <Iphone scale={[1.7, 1.7, 1.7]} item={item} size={size} /> */}

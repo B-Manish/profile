@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React from "react";
 import { useGLTF, useTexture, PerspectiveCamera } from "@react-three/drei";
-import vs from "../static/npmr.png";
+import vs from "../static/npmrr.png";
 
 function Plain(props) {
   const { nodes, materials } = useGLTF("/models/gg.glb");
@@ -12,39 +12,39 @@ function Plain(props) {
     <group {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]}>
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_1.geometry}
           material={materials.Body}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_2.geometry}
           material={materials.Screen_Mat}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_3.geometry}
           // material={materials.Screen_Emitter}
           material={new THREE.MeshBasicMaterial({ map: screenTexture })}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_4.geometry}
           material={materials.Screen_Mat_Text}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_5.geometry}
           material={materials.TouchPad}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Top_Body001_6.geometry}
           material={materials.Knurling}
         />

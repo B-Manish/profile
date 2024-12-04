@@ -113,7 +113,7 @@ function Builtcard({
         sx={{
           display: "flex",
           alignItems: "center",
-          width: "50%",
+          width: "100%",
           justifyContent: reverse === true && "right",
         }}
       >
