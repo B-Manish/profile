@@ -4,7 +4,6 @@ import { useMediaQuery } from "@mui/material";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Vscode from "../static/vscode.png";
-import Threed from "./Threed";
 
 function Builtcard({
   reverse = false,
@@ -14,8 +13,28 @@ function Builtcard({
   heading = " Haylon theme",
   description = "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
   img = Vscode,
+  github = true,
+  npm = false,
 }) {
   const isMdScreen = useMediaQuery("(max-width:899px)");
+
+  const handleClick = () => {
+    window.location.href =
+      "https://www.npmjs.com/package/react-virtualize-manish";
+  };
+
+  function Npm() {
+    return (
+      <svg viewBox="0 0 780 250" width="100%" height="100%">
+        <path
+          fill="white"
+          d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z"
+          stroke-width="5"
+          stroke="#f7f7f7"
+        ></path>
+      </svg>
+    );
+  }
 
   return isMdScreen ? (
     <Box
@@ -173,8 +192,29 @@ function Builtcard({
           }}
         >
           <Box sx={{ display: "flex" }}>
-            <GitHubIcon style={{ marginRight: "20px", color: "white" }} />
-            <GitHubIcon style={{ color: "white" }} />
+            {github && (
+              <GitHubIcon
+                style={{
+                  marginRight: "20px",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+              />
+            )}
+            {npm && (
+              <Box
+                sx={{
+                  height: "25px",
+                  width: "35px",
+                  pt: "3px",
+                  cursor: "pointer",
+                }}
+                onClick={handleClick}
+              >
+                <Npm />
+              </Box>
+            )}
+
           </Box>
         </Box>
       </Box>
