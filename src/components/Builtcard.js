@@ -117,7 +117,47 @@ function Builtcard({
           justifyContent: reverse === true && "right",
         }}
       >
-        {iphone ? <Threed /> : <img src={img} style={{ width: "120%" }} />}
+        {iphone ? (
+          <Threed />
+        ) : (
+          <Box
+            sx={{
+              height: "100%",
+              width: "120%",
+              position: "relative",
+              overflow: "hidden",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: `linear-gradient(rgba(8,42,54, 0.5), rgba(8,42,54, 0.5)), url(${img})`, // Custom tint + image
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                opacity: 0.85,
+                zIndex: 1,
+                transition: "opacity 0.2s ease-in-out",
+              },
+              "&:hover::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: ` url(${img})`, // Custom tint + image
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                opacity: 0.9,
+                zIndex: 1,
+              },
+            }}
+          />
+        )}
       </Box>
       <Box
         sx={{
