@@ -95,9 +95,9 @@ function Built({ setBuiltRef }) {
             margin="0 0 100px 0"
             heading="Cloud-based Food Ordering Application"
             img={Swiggy}
-            technologies={["React", "FastAPI", "Lambda","API Gateway", "Amplify", "EC2"]}
+            technologies={["React", "FastAPI", "Lambda","API Gateway", "Amplify", "EC2","DynamoDB"]}
             npm
-            description="Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 for compute, and S3 for storage. "
+            description="Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 and DynamoDB for compute, and S3 for storage. "
           />
           <Builtcard
             margin="0 0 100px 0"
