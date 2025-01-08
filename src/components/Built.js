@@ -6,6 +6,8 @@ import { useMediaQuery } from "@mui/material";
 import Builtcard from "./Builtcard";
 import Ecomm from "../static/ecomm.png";
 import Npm from "../static/npm.png";
+import Swiggy from "../static/swiggy.png";
+
 
 function Built({ setBuiltRef }) {
   const mainRef = useRef(null);
@@ -89,7 +91,14 @@ function Built({ setBuiltRef }) {
             </Box>
             <CustomDivider />
           </Box>
-          <Builtcard margin="0 0 100px 0" />
+          <Builtcard
+            margin="0 0 100px 0"
+            heading="Cloud-based Food Ordering Application"
+            img={Swiggy}
+            technologies={["React", "FastAPI", "Lambda","API Gateway", "Amplify", "EC2"]}
+            npm
+            description="Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 for compute, and S3 for storage. "
+          />
           <Builtcard
             margin="0 0 100px 0"
             heading="Custom Package"
