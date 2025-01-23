@@ -13,7 +13,7 @@ function Getintouch({ setContactRef }) {
   }, []);
 
   const handleContactClick = () => {
-    window.location.href = "mailto:bmanish7777@gmail.com?subject=Contact%20Me";
+    window.location.href = "mailto:manish.batchu7@gmail.com?subject=Contact%20Me";
   };
 
   return (
@@ -101,7 +101,7 @@ function Getintouch({ setContactRef }) {
               // margin: "0 0 19px 0",
             }}
           >
-            Built by Batchu Manish
+            Built by Manish Batchu
           </Box>
         </Box>
       </Grid>

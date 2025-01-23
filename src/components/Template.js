@@ -26,6 +26,10 @@ function Template({ page }) {
   const isMdScreen = useMediaQuery("(max-width:899px)");
   const isSxScreen = useMediaQuery("(max-width:599px)");
 
+  const navigateTo = (url) => {
+    window.location.href = url;
+  };
+
   return !isLoaded ? (
     <Preloader
       showBM={showBM}
@@ -61,12 +65,21 @@ function Template({ page }) {
             >
               <GitHubIcon
                 sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+                onClick={() => navigateTo("https://github.com/B-Manish")}
               />
               <LinkedInIcon
                 sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }}
+                onClick={() =>
+                  navigateTo("https://www.linkedin.com/in/manish-batchu/")
+                }
               />
-              <XIcon sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }} />
-              <InstagramIcon sx={{ color: "#CBCBD7", cursor: "pointer" }} />
+              {/* <XIcon sx={{ color: "#CBCBD7", mb: "15px", cursor: "pointer" }} /> */}
+              <InstagramIcon
+                sx={{ color: "#CBCBD7", cursor: "pointer" }}
+                onClick={() =>
+                  navigateTo("https://www.linkedin.com/in/manish-batchu/")
+                }
+              />
             </Box>
             <Box
               sx={{
@@ -102,7 +115,7 @@ function Template({ page }) {
               sx={{
                 position: "fixed",
                 bottom: "230px",
-                right: "20px",
+                right: "10px",
                 color: "#A8B2D1",
                 fontSize: "12px",
                 rotate: "90deg",
@@ -110,7 +123,7 @@ function Template({ page }) {
               }}
               className="roboto"
             >
-              <Box> bmanish7777@gmail.com</Box>
+              <Box>manish.batchu7@gmail.com</Box>
             </Box>
             <Box
               sx={{
