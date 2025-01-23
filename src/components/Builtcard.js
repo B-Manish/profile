@@ -134,7 +134,7 @@ function Builtcard({
                 bottom: 0,
                 background: `linear-gradient(rgba(8,42,54, 0.5), rgba(8,42,54, 0.5)), url(${img})`, // Custom tint + image
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                // backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 opacity: 0.85,
                 zIndex: 1,
@@ -149,7 +149,7 @@ function Builtcard({
                 bottom: 0,
                 background: ` url(${img})`, // Custom tint + image
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                // backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 opacity: 0.9,
                 zIndex: 1,
