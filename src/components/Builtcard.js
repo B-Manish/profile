@@ -85,7 +85,6 @@ function Builtcard({
           fontWeight: "600",
           fontSize: "24px",
           mb: "19px",
-          whiteSpace: "nowrap",
         }}
       >
         {heading}
@@ -189,7 +188,6 @@ function Builtcard({
             fontSize: "24px",
             textAlign: reverse === true ? "left" : "right",
             mb: "19px",
-            whiteSpace: "nowrap",
           }}
         >
           {heading}
