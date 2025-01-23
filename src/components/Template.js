@@ -27,7 +27,7 @@ function Template({ page }) {
   const isSxScreen = useMediaQuery("(max-width:599px)");
 
   const navigateTo = (url) => {
-    window.location.href = url;
+    window.open(url, "_blank");
   };
 
   return !isLoaded ? (
