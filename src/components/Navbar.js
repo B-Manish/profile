@@ -187,7 +187,11 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
             );
           })}
           <Box sx={{ padding: "0 20px", mt: "25px" }}>
-            <CustomButton text="Resume" padding="12px 16px" />
+            <CustomButton
+              text="Resume"
+              padding="12px 16px"
+              clickHandler={handleResumeClick}
+            />
           </Box>
         </Box>
       </CustomModal>
