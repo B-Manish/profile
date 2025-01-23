@@ -41,6 +41,21 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
     setOpenModal(false);
   };
 
+  const handleResumeClick = () => {
+    // resume should be placed in 'public' folder
+    const resumeUrl = "/Manish_Batchu_Resume.pdf";
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.platform);
+    if (isMobile) {
+      console.log('isMobile');
+      const link = document.createElement("a");
+      link.href = resumeUrl;
+      link.download = "Manish_Batchu_Resume.pdf";
+      link.click();
+    } else {
+      window.open(resumeUrl, "_blank");
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPosition = window.pageYOffset;
@@ -281,7 +296,11 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
               );
             })}
             <Box className="items">
-              <CustomButton text="Resume" padding="12px 16px" />
+              <CustomButton
+                text="Resume"
+                padding="12px 16px"
+                clickHandler={handleResumeClick}
+              />
             </Box>
           </Box>
         </Box>
