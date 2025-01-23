@@ -46,7 +46,6 @@ function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
     const resumeUrl = "/Manish_Batchu_Resume.pdf";
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.platform);
     if (isMobile) {
-      console.log('isMobile');
       const link = document.createElement("a");
       link.href = resumeUrl;
       link.download = "Manish_Batchu_Resume.pdf";
