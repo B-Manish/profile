@@ -77,7 +77,7 @@ function Template({ page }) {
               <InstagramIcon
                 sx={{ color: "#CBCBD7", cursor: "pointer" }}
                 onClick={() =>
-                  navigateTo("https://www.linkedin.com/in/manish-batchu/")
+                  navigateTo("https://www.instagram.com/bmanish_msd/")
                 }
               />
             </Box>
