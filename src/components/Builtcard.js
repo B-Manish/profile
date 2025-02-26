@@ -48,9 +48,6 @@ function Builtcard({
       sx={{
         mb: "30px",
         padding: "40px 20px",
-        // //background: `linear-gradient(rgba(8,29,44, 0.9), rgba(8,29,44, 0.9)), url(${Vscode})`, // Custom tint + image
-        // //background: `linear-gradient(rgba(8,19,36, 0.5), rgba(8,19,36, 0.5)), url(${Vscode})`, // Custom tint + image
-        // background: `linear-gradient(rgba(8,42,54, 0.9), rgba(8,42,54, 0.9)), url(${Vscode})`, // Custom tint + image
         position: "relative",
         overflow: "hidden",
         "&::before": {
@@ -115,8 +112,6 @@ function Builtcard({
     >
       <Box
         sx={{
-          // display: "flex",
-          // alignItems: "center",
           width: "50%",
           justifyContent: reverse === true && "right",
         }}
