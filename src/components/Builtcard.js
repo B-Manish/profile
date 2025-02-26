@@ -17,12 +17,17 @@ function Builtcard({
   img = Vscode,
   github = true,
   npm = false,
+  githuburl = "https://github.com/B-Manish",
 }) {
   const isMdScreen = useMediaQuery("(max-width:899px)");
 
   const handleClick = () => {
     window.location.href =
       "https://www.npmjs.com/package/react-virtualize-manish";
+  };
+
+  const goTo = (url) => {
+    window.open(url);
   };
 
   function Npm() {
@@ -239,6 +244,7 @@ function Builtcard({
                   color: "white",
                   cursor: "pointer",
                 }}
+                onClick={() => goTo(githuburl)}
               />
             )}
             {npm && (
