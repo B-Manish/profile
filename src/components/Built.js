@@ -8,6 +8,7 @@ import Ecomm from "../static/ecomm.png";
 import Npm from "../static/npm.png";
 import Swiggy from "../static/swiggy.png";
 import Generator from "../static/generator.png";
+import Pdf from "../static/pdfextractor.png";
 
 
 function Built({ setBuiltRef }) {
@@ -94,6 +95,18 @@ function Built({ setBuiltRef }) {
           </Box>
           <Builtcard
             margin="0 0 100px 0"
+            heading="PDF Invoice Text Extractor"
+            img={Pdf}
+            technologies={[
+              ".NET ",
+              "AWS Textract",
+              "AWS S3"
+            ]}
+            githuburl="https://github.com/B-Manish/pdfextractor"
+            description="Developed a PDF Invoice Text Extractor using .NET that automates the process of extracting textual data from PDF invoices and converts it into a structured CSV format. This tool simplifies invoice data handling for businesses or individuals managing large volumes of invoices."
+          />
+          <Builtcard
+            margin="0 0 100px 0"
             heading="Profile Generator"
             img={Generator}
             technologies={[
@@ -104,6 +117,7 @@ function Built({ setBuiltRef }) {
               "S3",
               "Express.js",
             ]}
+            reverse
             githuburl="https://github.com/B-Manish/ProfileGenerator"
             description="Developed a dynamic profile website generator using React, enabling users to input their personal details—such as name, experience, projects, and hobbies—and automatically generate a personalized website. The application hosts the website on Netlify and provides users with a unique URL for easy access and sharing. "
           />
@@ -120,7 +134,7 @@ function Built({ setBuiltRef }) {
               "EC2",
               "DynamoDB",
             ]}
-            reverse
+            
             githuburl="https://github.com/B-Manish/FullStackApp"
             description="Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 and DynamoDB for compute, and S3 for storage. "
           />
@@ -131,6 +145,7 @@ function Built({ setBuiltRef }) {
             iphone
             technologies={["React", "webpack", "npm"]}
             npm
+            reverse
             githuburl="https://github.com/B-Manish/ggpackage"
             description="Developed a React package that optimizes rendering performance by implementing virtualization. This package allows for efficient rendering of large data sets by only displaying visible elements, significantly improving load times and reducing memory usage.This package is ideal for developers looking to enhance the performance of their React applications, especially those handling dynamic and large lists."
           />
