@@ -9,7 +9,7 @@ import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import yellowImg from "../static/yellow.jpg";
 
-const Threed = () => {
+const Threed = ({ height = "650px", width = "300px" }) => {
   const [size, setSize] = useState("small");
   const [model, setModel] = useState({
     title: "iPhone 15 Pro in Natural Titanium",
@@ -49,8 +49,8 @@ const Threed = () => {
           setRotationState={setLargeRotation}
           item={model}
           size={size}
-          height="650px"
-          width="300px"
+          height={height}
+          width={width}
         />
       </Box>
 

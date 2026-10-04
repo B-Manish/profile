@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Home from "./components/Home";
-
+import NotFound from "./components/NotFound";
 import Template from "./components/Template";
 
 const customTheme = createTheme({
@@ -21,6 +21,7 @@ function App() {
     <ThemeProvider theme={customTheme}>
       <Routes>
         <Route path="/" element={<Template page={<Home />}></Template>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </ThemeProvider>
   );

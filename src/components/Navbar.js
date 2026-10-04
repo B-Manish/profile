@@ -1,314 +1,162 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
-import "../App.css";
-import CustomButton from "./Custombutton";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from "@mui/material";
-import CustomModal from "./CustomModal";
-import CustomDivider from "./Divider";
-import CloseIcon from "@mui/icons-material/Close";
+import { Modal } from "@mui/material";
+import { motion } from "framer-motion";
+import { CloseIcon, DownloadIcon, JollyRoger, SoundIcon, Wheel } from "./Art";
+import { reduced, sfx } from "../lib";
 
-function Navbar({ aboutRef, builtRef, contactRef, expRef }) {
-  const navbaritems = ["About", "Experience", "Work", "Contact"];
-  const [openModal, setOpenModal] = useState(false);
-  const isSxScreen = useMediaQuery("(max-width:599px)");
+const NAV = [
+  { id: "deck", label: "The Deck", sub: "Home", mobileOnly: true },
+  { id: "log", label: "Captain's Log", sub: "About" },
+  { id: "voyages", label: "Crew Voyages", sub: "Experience" },
+  { id: "bounty", label: "Bounty Board", sub: "Projects" },
+  { id: "islands", label: "Side Quests", sub: "Other work" },
+  { id: "snail", label: "Den Den Mushi", sub: "Contact" },
+];
+const RESUME = "/Manish_Batchu_Resume.pdf";
 
-  useGSAP(() => {
-    gsap.fromTo(
-      ".items",
-      { opacity: 0, y: -30 }, // Start from -100px (off-screen top)
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 } // Animate to the original position
-    );
-
-    gsap.fromTo(".logo", { opacity: 0 }, { opacity: 1, delay: "0.2" });
-  }, []);
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false); // To prevent multiple GSAP calls
-  const [isAtTop, setIsAtTop] = useState(true); // New state to track if at top
-  const [rotationDegree, setRotationDegree] = useState(0);
-  const [rotationDegreeClose, setRotationDegreeClose] = useState(0);
-
-  const handleClick = () => {
-    setRotationDegree((prev) => prev + 360);
-    setOpenModal(true);
-  };
-
-  const handleClickClose = () => {
-    setRotationDegreeClose((prev) => prev - 360);
-    setRotationDegree((prev) => prev - 360);
-    setOpenModal(false);
-  };
-
-  const handleResumeClick = () => {
-    // resume should be placed in 'public' folder
-    const resumeUrl = "/Manish_Batchu_Resume.pdf";
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.platform);
-    if (isMobile) {
-      const link = document.createElement("a");
-      link.href = resumeUrl;
-      link.download = "Manish_Batchu_Resume.pdf";
-      link.click();
-    } else {
-      window.open(resumeUrl, "_blank");
-    }
-  };
-
+function useScrollSpy() {
+  const [active, setActive] = useState("deck");
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPosition = window.pageYOffset;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    NAV.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+  return active;
+}
 
-      // Toggle shadow based on scroll position
-      if (currentScrollPosition === 0) {
-        setIsAtTop(true); // We're at the top of the page
-      } else {
-        setIsAtTop(false); // We're scrolling away from the top
-      }
-
-      if (currentScrollPosition > scrollPosition && !isAnimating) {
-        // Scrolling down, hide navbar
-        setIsAnimating(true);
-        gsap.to(".navbar", {
-          y: -100, // Move navbar off-screen
-          duration: 0.5,
-          ease: "power2.out",
-          onComplete: () => setIsAnimating(false),
-        });
-      } else if (currentScrollPosition < scrollPosition && !isAnimating) {
-        // Scrolling up, show navbar
-        setIsAnimating(true);
-        gsap.to(".navbar", {
-          y: 0, // Bring navbar back to the top position
-          duration: 0.5,
-          ease: "power2.out",
-          onComplete: () => setIsAnimating(false),
-        });
-      }
-
-      setScrollPosition(currentScrollPosition);
+// Tucks the bar away while scrolling down, brings it back on scroll up.
+function useTucked() {
+  const [tucked, setTucked] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 6) return;
+      setTucked(y > last && y > 120);
+      last = y;
     };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return tucked;
+}
 
-    window.addEventListener("scroll", handleScroll);
+function Navbar() {
+  const active = useScrollSpy();
+  const tucked = useTucked();
+  const [open, setOpen] = useState(false);
+  const [spin, setSpin] = useState(0);
+  const [sound, setSound] = useState(sfx.on);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition, isAnimating]);
-
-  const handleScroll = (ref) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  const toggleMenu = (next) => {
+    setSpin((s) => s + (next ? 180 : -180));
+    setOpen(next);
   };
 
-  const getRef = (item) => {
-    if (item === "About") return aboutRef;
-    else if (item === "Work") return builtRef;
-    else if (item === "Contact") return contactRef;
-    else if (item === "Experience") return expRef;
-    else return aboutRef;
+  // Close the drawer first (it locks body scroll), then sail to the section.
+  const go = (e, id) => {
+    e.preventDefault();
+    toggleMenu(false);
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: reduced() ? "auto" : "smooth" });
+      window.history.replaceState(null, "", `#${id}`);
+    }, 50);
   };
 
   return (
-    <Box
-      className="navbar"
-      sx={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        height: "85px",
-        alignItems: "center",
-        position: "fixed",
-        fontFamily: '"Roboto Mono", monospace',
-        backdropFilter: " blur(50px)",
-        boxShadow: !isAtTop && "0 4px 20px rgba(0, 0, 0, 0.3)",
-        zIndex: "1001",
-      }}
-    >
-      <CustomModal open={openModal} handleClose={() => setOpenModal(false)}>
-        <Box sx={{ padding: "20px 0" }}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              paddingRight: "50px",
-              mb: "30px",
-              cursor: "pointer",
-            }}
-          >
-            <CloseIcon
-              onClick={handleClickClose}
-              style={{
-                color: "#5BF2CE",
-                transform: `rotate(${rotationDegreeClose}deg)`,
-                transition: "transform 0.5s ease",
+    <header className={`topbar${tucked && !open ? " tucked" : ""}`}>
+      <nav aria-label="Primary" className="topnav">
+        <a href="#deck" className="brand" aria-label="Manish Batchu, back to the deck">
+          <JollyRoger />
+          <span className="display brand-name">
+            Manish
+            <br />
+            <span>Batchu</span>
+          </span>
+        </a>
+
+        <div className="navlinks">
+          {NAV.filter((n) => !n.mobileOnly).map(({ id, label, sub }) => (
+            <a key={id} className="navlink" href={`#${id}`} aria-current={active === id ? "true" : undefined}>
+              <span className="display">{label}</span>
+              <span className="sub">{sub}</span>
+              {active === id && <motion.span layoutId="nav-underline" className="nav-underline" aria-hidden="true" />}
+            </a>
+          ))}
+          <a className="btn btn-primary nav-resume" href={RESUME} target="_blank" rel="noreferrer">
+            <DownloadIcon />
+            Resume
+          </a>
+        </div>
+
+        <button
+          type="button"
+          className="wheel-btn"
+          aria-label="Open menu"
+          aria-expanded={open}
+          onClick={() => toggleMenu(true)}
+          style={{ transform: `rotate(${spin}deg)` }}
+        >
+          <Wheel />
+        </button>
+      </nav>
+
+      <Modal open={open} onClose={() => toggleMenu(false)} aria-label="Site menu">
+        <div className="drawer">
+          <div className="drawer-head">
+            <span className="display">
+              Manish <span>Batchu</span>
+            </span>
+            <button type="button" className="wheel-btn" aria-label="Close menu" aria-expanded="true" onClick={() => toggleMenu(false)}>
+              <CloseIcon size={20} />
+            </button>
+          </div>
+
+          <div className="drawer-wheel">
+            <motion.div initial={{ rotate: reduced() ? 22 : -158 }} animate={{ rotate: 22 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+              <Wheel big size={150} />
+            </motion.div>
+          </div>
+
+          <nav aria-label="Primary">
+            <ul>
+              {NAV.map(({ id, label, sub }) => (
+                <li key={id}>
+                  <a className="drawer-link" href={`#${id}`} onClick={(e) => go(e, id)} aria-current={active === id ? "true" : undefined}>
+                    <span className="display">{label}</span>
+                    <span className="sub">{sub}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="drawer-foot">
+            <a className="btn btn-primary" href={RESUME} download>
+              Download resume
+            </a>
+            <button
+              type="button"
+              className="sfx-btn"
+              aria-pressed={sound}
+              aria-label={sound ? "Sound effects: on" : "Sound effects: muted"}
+              onClick={() => {
+                sfx.set(!sound);
+                setSound(!sound);
               }}
-            />
-          </Box>
-
-          {navbaritems?.map((item, index) => {
-            return (
-              <Box
-                onClick={() => {
-                  handleScroll(getRef(item));
-                  setOpenModal(false);
-                }}
-                sx={{
-                  cursor: "pointer",
-                  fontSize: "12px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  mb: "15px",
-                }}
-              >
-                <Box
-                  sx={{
-                    color: "#5BF2CE",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                  className="roboto"
-                >
-                  0{index + 1}.
-                </Box>
-                <Box
-                  sx={{
-                    color: "#A7C3E5",
-                    display: "flex",
-                    alignItems: "center",
-                    fontFamily: '"Roboto Mono", monospace',
-                  }}
-                >
-                  {item}
-                </Box>
-              </Box>
-            );
-          })}
-          <Box sx={{ padding: "0 20px", mt: "25px" }}>
-            <CustomButton
-              text="Resume"
-              padding="12px 16px"
-              clickHandler={handleResumeClick}
-            />
-          </Box>
-        </Box>
-      </CustomModal>
-      <Box
-        sx={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginLeft: isSxScreen ? "30px" : "50px",
-        }}
-      >
-        <svg width="50" height="50" viewBox="0 0 200 200">
-          <path
-            d="M 100,10 L 170,55 L 170,145 L 100,190 L 30,145 L 30,55 Z"
-            fill="none"
-            stroke="#5BF2CE"
-            strokeWidth="8"
-          />
-        </svg>
-
-        <Typography
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "14px",
-            fontWeight: "bold",
-            color: "#5BF2CE",
-            fontFamily: '"Roboto Mono", monospace',
-          }}
-        >
-          MB
-        </Typography>
-      </Box>
-      {isSxScreen ? (
-        <Box
-          onClick={handleClick}
-          sx={{
-            display: "flex",
-            cursor: "pointer",
-            justifyContent: "flex-end",
-            flexDirection: "column",
-            mr: "30px",
-            mt: "10px",
-            transform: `rotate(${rotationDegree}deg)`,
-            transition: "transform 0.5s ease",
-          }}
-        >
-          <CustomDivider
-            background="#5BF2CE"
-            margin="0 0 10px 0"
-            width="35px"
-            height="2.5px"
-          />
-          <CustomDivider
-            background="#5BF2CE"
-            margin="0 0 10px 10px"
-            width="25px"
-            height="2.5px"
-          />
-          <CustomDivider
-            background="#5BF2CE"
-            margin="0 0 10px 20px"
-            width="15px"
-            height="2.5px"
-          />
-        </Box>
-      ) : (
-        <Box sx={{ marginRight: "50px" }}>
-          <Box sx={{ display: "flex" }}>
-            {navbaritems?.map((item, index) => {
-              return (
-                <Box
-                  onClick={() => {
-                    handleScroll(getRef(item));
-                  }}
-                  sx={{
-                    pr: "25px",
-                    cursor: "pointer",
-                    display: "flex",
-                    fontSize: "12px",
-                  }}
-                  className="items"
-                >
-                  <Box
-                    sx={{
-                      color: "#5BF2CE",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    0{index + 1}.
-                  </Box>
-                  <Box
-                    sx={{
-                      color: "#A7C3E5",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    {item}
-                  </Box>
-                </Box>
-              );
-            })}
-            <Box className="items">
-              <CustomButton
-                text="Resume"
-                padding="12px 16px"
-                clickHandler={handleResumeClick}
-              />
-            </Box>
-          </Box>
-        </Box>
-      )}
-    </Box>
+            >
+              <SoundIcon muted={!sound} />
+            </button>
+          </div>
+        </div>
+      </Modal>
+    </header>
   );
 }
 

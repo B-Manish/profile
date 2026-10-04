@@ -1,204 +1,107 @@
-import React, { useEffect, useRef } from "react";
-import { Box, Grid } from "@mui/material";
-import "../App.css";
-import CustomDivider from "./Divider";
-import profile from "../static/profile.JPG";
+import React, { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from "@mui/material";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import profile from "../static/profile.JPG";
+import { BoltIcon } from "./Art";
+import { batchIn, reduced } from "../lib";
 
-gsap.registerPlugin(ScrollTrigger);
+const HAKI = [
+  { tech: "React", power: "Observation Haki", line: "Sees every re-render coming.", color: "#2EC4B6" },
+  { tech: "FastAPI", power: "Armament Haki", line: "Hardened, typed, fast endpoints.", color: "#F77F00" },
+  { tech: "Python (LLMs)", power: "Conqueror's Haki", line: "Commands whole crews of agents.", color: "#D62828" },
+  { tech: "PostgreSQL", power: "Log Pose Memory", line: "Never forgets where it has been.", color: "#F2C14E" },
+  { tech: "AWS", power: "Sky Island Ops", line: "Keeps things afloat in the clouds.", color: "#8FC1E3" },
+  { tech: "Docker", power: "Ship-in-a-Bottle", line: "Everything packed, nothing spills.", color: "#B9A0E8" },
+];
 
-function Aboutme({ setAboutRef }) {
-  const mainRef = useRef(null);
-  const containerRef = useRef(null);
-  const isMdScreen = useMediaQuery("(max-width:899px)");
-  const isSxScreen = useMediaQuery("(max-width:599px)");
+const TORN =
+  "M0 0 H1440 V10 L1410 22 L1380 8 L1340 20 L1300 6 L1262 18 L1220 9 L1180 24 L1140 8 L1098 19 L1060 6 L1020 20 L980 10 L940 22 L900 7 L860 19 L820 8 L780 23 L740 9 L700 20 L660 6 L620 18 L580 10 L540 24 L500 8 L460 19 L420 7 L380 21 L340 9 L300 22 L260 8 L220 19 L180 6 L140 21 L100 9 L60 20 L20 8 L0 16 Z";
 
-  useEffect(() => {
-    setAboutRef(mainRef);
-  }, []);
+function Aboutme() {
+  const ref = useRef(null);
 
-  useGSAP(() => {
-    gsap.fromTo(
-      containerRef.current,
-      {
-        opacity: 0,
-        // y: -20, // Start 10 pixels above the original position
-      },
-      {
-        duration: 1,
-        opacity: 1,
-        // y: 0, // Move to the original position
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%", // Start animation when the top of the box reaches 85% down the viewport
-          end: "top 40%", // End animation when the top of the box reaches 40% down the viewport
-          scrub: true, // Smooth animation based on scroll position
-          // markers: true, // Optional: Show markers for debugging
-        },
+  useGSAP(
+    () => {
+      const poster = ref.current.querySelector(".wanted");
+      if (reduced()) {
+        gsap.from(poster, { opacity: 0, duration: 0.2, scrollTrigger: { trigger: poster, start: "top 85%" } });
+      } else {
+        gsap.fromTo(
+          poster,
+          { y: -40, rotation: -8, opacity: 0 },
+          { y: 0, rotation: 2, opacity: 1, duration: 0.6, ease: "back.out(1.6)", clearProps: "transform", scrollTrigger: { trigger: poster, start: "top 85%" } }
+        );
       }
-    );
-  }, []);
+      batchIn(".haki-card", { opacity: 0, y: 20 }, { stagger: 0.06 });
+    },
+    { scope: ref }
+  );
+
   return (
-    <Grid
-      container
-      sx={{ background: "#0A192F" }}
-      className="ggg"
-      ref={mainRef}
-    >
-      <Grid item xs={1}></Grid>
-      <Grid
-        item
-        xs={isSxScreen ? 12 : 10}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          padding: isSxScreen && "0 30px",
-        }}
-      >
-        <Box
-          sx={{
-            width: isSxScreen ? "100%" : "75%",
-            maxWidth: "900px",
-            minHeight: "500px",
-            opacity: "0",
-          }}
-          ref={containerRef}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              mb: "20px",
-            }}
-            className="roboto"
-          >
-            <Box
-              sx={{
-                color: "#5BF2CE",
-                fontSize: "24px",
-              }}
-            >
-              01.
-            </Box>
-            <Box
-              className="customdmsans"
-              sx={{
-                color: "#A7C3E5",
-                fontWeight: "600",
-                fontSize: "32px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              About me
-            </Box>
-            <CustomDivider />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: {
-                xs: "column",
-                md: "row",
-              },
-            }}
-          >
-            <Box sx={{ maxWidth: "511px" }}>
-              <Box
-                className="customdmsans"
-                sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
-              >
-                Hello! My name is Manish, and I'm a full stack AI engineer who
-                started out on the frontend and now builds end-to-end systems,
-                from polished React interfaces to LLM-powered backends.
-              </Box>
-              <Box
-                className="customdmsans"
-                sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
-              >
-                At Innings2 I architect multi-agent platforms with FastAPI and
-                the Agno framework. On the side I built and deployed ManishGPT,
-                a multi-agent LLM platform with model routing and pgvector
-                search, running as Dockerized services on AWS EC2. I enjoy
-                turning hard problems into reliable, production-ready software.
-              </Box>
-              <Box
-                className="customdmsans"
-                sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
-              >
-                Here are a few technologies I’ve been working with recently:
-              </Box>
-              <Grid container>
-                {[
-                  "React js",
-                  "FastAPI",
-                  "Python(LLMs)",
-                  "PostgreSQL",
-                  "AWS",
-                  "Docker",
-                ]?.map((item) => {
-                  return (
-                    <Grid item xs={6} sx={{ pb: "5px", maxWidth: "200px" }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <PlayArrowIcon
-                          style={{
-                            color: "#64FFDA",
-                            fontSize: "12px",
-                            marginRight: "7px",
-                          }}
-                        />
-                        <Box
-                          sx={{
-                            color: "#8892b0",
-                            display: "flex",
-                            alignItems: "center",
-                            fontFamily: '"Roboto Mono", monospace',
-                            fontSize: "13px",
-                            fontWeight: "400",
-                          }}
-                        >
-                          {item}
-                        </Box>
-                      </Box>
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Box>
-            <Box
-              sx={{
-                maxWidth: isMdScreen ? "100%" : "389px",
-                padding: isMdScreen ? "25px 0 0 0" : "0 0 0 30px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: isMdScreen && "60px",
-              }}
-            >
-              <Box
-                sx={{
-                  background: ` url(${profile})`,
-                  minHeight: "250px",
-                  minWidth: "250px",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-            </Box>
-          </Box>
-        </Box>
-      </Grid>
-      <Grid item xs={1}></Grid>
-    </Grid>
+    <section id="log" className="log paper" aria-labelledby="log-h" ref={ref}>
+      <svg className="torn" aria-hidden="true" viewBox="0 0 1440 26" preserveAspectRatio="none">
+        <path d={TORN} />
+      </svg>
+      <div className="log-inner">
+        <div className="log-head">
+          <p className="eyebrow">01 · Captain's Log</p>
+          <h2 id="log-h" className="display h2">
+            Who's steering this ship?
+          </h2>
+        </div>
+
+        <div className="log-copy">
+          <p>
+            Hello! I'm Manish — a full stack AI engineer who set sail on the frontend and now builds end-to-end systems, from polished React
+            interfaces to LLM-powered backends.
+          </p>
+          <p>
+            At Innings2 I architect multi-agent platforms with FastAPI and the Agno framework. On the side I built and deployed ManishGPT, a
+            multi-agent LLM platform with model routing and pgvector search, running as Dockerized services on AWS EC2. I like turning rough
+            seas into reliable, production-ready software.
+          </p>
+          <p className="abilities">My abilities, as of this log entry:</p>
+          <div className="haki-grid">
+            {HAKI.map((h) => (
+              <div className="haki haki-card" key={h.tech}>
+                <div className="haki-top">
+                  <span className="haki-dot" aria-hidden="true" style={{ background: h.color }}>
+                    <BoltIcon />
+                  </span>
+                  <span className="haki-tech">{h.tech}</span>
+                </div>
+                <div className="display haki-power">{h.power}</div>
+                <div className="haki-line">{h.line}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="log-poster">
+          <figure className="wanted">
+            <span className="pin" aria-hidden="true" />
+            <div className="rye wanted-title">WANTED</div>
+            <div className="wanted-photo">
+              <img src={profile} alt="Portrait of Manish Batchu smiling, wearing glasses" width="290" height="290" />
+            </div>
+            <div className="rye wanted-sub">DEPLOYED OR LOCALHOST</div>
+            <figcaption className="rye">MANISH BATCHU</figcaption>
+            <div className="wanted-bounty">
+              <span className="rye" style={{ fontSize: 26 }}>
+                ฿
+              </span>
+              <span className="rye" style={{ fontSize: 30, letterSpacing: ".02em" }}>
+                4,000,000,000
+              </span>
+              <span className="rye" style={{ fontSize: 22 }}>
+                -
+              </span>
+            </div>
+            <div className="wanted-note">one billion per year at sea · 4+ yrs · 8 ships launched</div>
+          </figure>
+        </div>
+      </div>
+    </section>
   );
 }
 
