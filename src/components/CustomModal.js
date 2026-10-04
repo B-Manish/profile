@@ -97,9 +97,11 @@ const CustomModal = ({ project: p, handleClose }) => {
                     {p.npm ? "See it on npm" : "Board ship (live)"}
                   </a>
                 )}
-                <a href={p.githuburl} target="_blank" rel="noreferrer">
-                  Read the logbook (code)
-                </a>
+                {p.githuburl && (
+                  <a href={p.githuburl} target="_blank" rel="noreferrer">
+                    Read the logbook (code)
+                  </a>
+                )}
               </div>
             </div>
           </div>

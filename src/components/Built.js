@@ -17,7 +17,6 @@ const projects = [
     img: ManishGPT,
     alt: "ManishGPT landing page: AI teams that chat with you",
     technologies: ["React", "FastAPI", "pgvector", "Redis", "Docker", "AWS EC2"],
-    githuburl: "https://github.com/B-Manish/ManishGPT",
     liveurl: "https://app.manishbatchu.com",
     route: ["Idea", "FastAPI + agents", "Live on EC2"],
     blurb: "Multi-agent LLM platform with cost-aware model routing, pgvector retrieval and streamed replies — Dockerized on AWS EC2.",
@@ -29,7 +28,6 @@ const projects = [
     img: Resume,
     alt: "Folio app screen: Tell us what you are building",
     technologies: ["FastAPI", "Claude API", "SQLite", "MinIO", "LaTeX", "Docker"],
-    githuburl: "https://github.com/B-Manish/resume",
     liveurl: "https://resume.manishbatchu.com/",
     blurb: "Tailors a resume to a job description with Claude, section by section, with side-by-side review and a LaTeX-compiled PDF.",
     description:
@@ -84,7 +82,7 @@ const TILTS = [-1.5, 1.2, -0.8, 1.6, -1.2, 0.9];
 
 // Playful math, labelled as such on the board: crimes (stack) × ฿100M.
 const bountyOf = (p) => (p.technologies.length * 100).toLocaleString("en-US") + ",000,000";
-const statusOf = (p) => (p.npm ? "ON NPM · AND · GITHUB" : p.liveurl ? "LIVE · AND · ON GITHUB" : "WANTED · ON GITHUB");
+const statusOf = (p) => (p.npm ? "ON NPM · AND · GITHUB" : p.liveurl ? (p.githuburl ? "LIVE · AND · ON GITHUB" : "LIVE · ON THE SEAS") : "WANTED · ON GITHUB");
 
 function Built() {
   const ref = useRef(null);

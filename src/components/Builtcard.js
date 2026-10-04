@@ -35,10 +35,12 @@ function Builtcard({ heading, img, alt, technologies, blurb, githuburl, liveurl,
         ))}
       </ul>
       <div className="poster-links">
-        <a className="plink" href={githuburl} target="_blank" rel="noreferrer">
-          <GitHubIcon />
-          Code
-        </a>
+        {githuburl && (
+          <a className="plink" href={githuburl} target="_blank" rel="noreferrer">
+            <GitHubIcon />
+            Code
+          </a>
+        )}
         {liveurl && (
           <a className="plink dark" href={liveurl} target="_blank" rel="noreferrer">
             <ExternalIcon />
