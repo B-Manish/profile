@@ -9,6 +9,8 @@ import Npm from "../static/npm.png";
 import Swiggy from "../static/swiggy.png";
 import Generator from "../static/generator.png";
 import Pdf from "../static/pdfextractor.png";
+import ManishGPT from "../static/manishgpt.png";
+import Resume from "../static/resume.png";
 
 
 function Built({ setBuiltRef }) {
@@ -95,8 +97,42 @@ function Built({ setBuiltRef }) {
           </Box>
           <Builtcard
             margin="0 0 100px 0"
+            heading="ManishGPT - Multi-Agent LLM Platform"
+            img={ManishGPT}
+            technologies={[
+              "React",
+              "FastAPI",
+              "pgvector",
+              "Redis",
+              "Docker",
+              "AWS EC2",
+            ]}
+            reverse
+            githuburl="https://github.com/B-Manish/ManishGPT"
+            liveurl="https://app.manishbatchu.com"
+            description="A production-ready multi-agent AI platform with LLM orchestration, cost-aware model routing, and role-based autonomous agents. Uses pgvector embeddings for semantic retrieval, streams responses to a React UI, and runs as Dockerized microservices (FastAPI, PostgreSQL, Redis, MinIO) behind a reverse proxy on AWS EC2, with Redis-backed rate limiting and response caching."
+          />
+          <Builtcard
+            margin="0 0 100px 0"
+            heading="Folio - AI Resume Tailor"
+            img={Resume}
+            technologies={[
+              "FastAPI",
+              "Claude API",
+              "SQLite",
+              "MinIO",
+              "LaTeX",
+              "Docker",
+            ]}
+            githuburl="https://github.com/B-Manish/resume"
+            liveurl="https://resume.manishbatchu.com/"
+            description="A web app that tailors a resume to a job description with Claude. Sign in with Google, upload a resume PDF and paste a job description. Claude extracts the resume into structured JSON and rewrites the summary, skills, experience and projects section by section. You review each change side by side, accept or reject it, and download a PDF compiled from a LaTeX template with Tectonic. Contact details and education are never sent to the model, and any rewritten section containing a number missing from the original is flagged and defaults to rejected."
+          />
+          <Builtcard
+            margin="0 0 100px 0"
             heading="PDF Invoice Text Extractor"
             img={Pdf}
+            reverse
             technologies={[
               ".NET ",
               "AWS Textract",
@@ -117,7 +153,6 @@ function Built({ setBuiltRef }) {
               "S3",
               "Express.js",
             ]}
-            reverse
             githuburl="https://github.com/B-Manish/ProfileGenerator"
             description="Developed a dynamic profile website generator using React, enabling users to input their personal details—such as name, experience, projects, and hobbies—and automatically generate a personalized website. The application hosts the website on Netlify and provides users with a unique URL for easy access and sharing. "
           />
@@ -134,7 +169,7 @@ function Built({ setBuiltRef }) {
               "EC2",
               "DynamoDB",
             ]}
-            
+            reverse
             githuburl="https://github.com/B-Manish/FullStackApp"
             description="Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 and DynamoDB for compute, and S3 for storage. "
           />
@@ -145,7 +180,6 @@ function Built({ setBuiltRef }) {
             iphone
             technologies={["React", "webpack", "npm"]}
             npm
-            reverse
             githuburl="https://github.com/B-Manish/ggpackage"
             description="Developed a React package that optimizes rendering performance by implementing virtualization. This package allows for efficient rendering of large data sets by only displaying visible elements, significantly improving load times and reducing memory usage.This package is ideal for developers looking to enhance the performance of their React applications, especially those handling dynamic and large lists."
           />

@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import "../App.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Vscode from "../static/vscode.png";
 import Threed from "./Threed";
 import Viewer from "./Viewer";
@@ -18,6 +19,7 @@ function Builtcard({
   github = true,
   npm = false,
   githuburl = "https://github.com/B-Manish",
+  liveurl,
 }) {
   const isMdScreen = useMediaQuery("(max-width:899px)");
 
@@ -240,6 +242,12 @@ function Builtcard({
                   cursor: "pointer",
                 }}
                 onClick={() => goTo(githuburl)}
+              />
+            )}
+            {liveurl && (
+              <OpenInNewIcon
+                style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
+                onClick={() => goTo(liveurl)}
               />
             )}
             {npm && (

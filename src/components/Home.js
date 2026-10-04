@@ -67,9 +67,9 @@ function Home() {
             color: "#CBCBD7",
           }}
         >
-          I am primarily a frontend developer with expertise in building
-          responsive, dynamic UIs and integrating REST APIs, while also
-          proficient in backend development for full-stack applications.
+          I am a Full Stack AI Engineer with 4+ years of experience building
+          scalable, AI-powered web applications, from React frontends and
+          FastAPI backends to multi-agent LLM systems deployed on AWS.
         </Box>
       </Box>
     </Box>

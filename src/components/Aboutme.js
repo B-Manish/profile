@@ -111,19 +111,19 @@ function Aboutme({ setAboutRef }) {
                 className="customdmsans"
                 sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
               >
-                Hello! My name is Manish, and I'm a frontend developer that
-                enjoys backend development and building code that requires
-                logical issue solving.
+                Hello! My name is Manish, and I'm a full stack AI engineer who
+                started out on the frontend and now builds end-to-end systems,
+                from polished React interfaces to LLM-powered backends.
               </Box>
               <Box
                 className="customdmsans"
                 sx={{ fontWeight: "300", color: "#8892b0", mb: "10px" }}
               >
-                While I enjoy creating smooth, user-friendly interfaces, I am
-                most motivated by the difficulties of developing scalable,
-                efficient backend solutions. I enjoy solving challenging coding
-                issues and bridging the gap between the frontend and backend to
-                develop unified, high-performance apps.
+                At Innings2 I architect multi-agent platforms with FastAPI and
+                the Agno framework. On the side I built and deployed ManishGPT,
+                a multi-agent LLM platform with model routing and pgvector
+                search, running as Dockerized services on AWS EC2. I enjoy
+                turning hard problems into reliable, production-ready software.
               </Box>
               <Box
                 className="customdmsans"
@@ -134,11 +134,11 @@ function Aboutme({ setAboutRef }) {
               <Grid container>
                 {[
                   "React js",
-                  "Cypress",
-                  "AWS",
-                  "Node.js",
+                  "FastAPI",
                   "Python(LLMs)",
-                  "Three.js",
+                  "PostgreSQL",
+                  "AWS",
+                  "Docker",
                 ]?.map((item) => {
                   return (
                     <Grid item xs={6} sx={{ pb: "5px", maxWidth: "200px" }}>

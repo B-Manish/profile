@@ -18,17 +18,31 @@ function Worked({ setExpRef }) {
     setExpRef(mainRef);
   }, []);
 
-  const projectExperience = [
-    "Collaborated with my colleague and team lead to build a documentation portal for our client’s product using Docusaurus (a static website generator).",
-    // "Successfully launched the documentation portal within a few months.",
-    // "Worked for 1.5 years on the UI for Covalent, a Python package that enhances performance by running Python workflows on the cloud.",
-    "Contributed to building a web application that visualizes and interacts with Covalent’s functionality.",
-    // "Utilized React for frontend development.",
-    "Implemented state management using Redux and Context API.",
-    "Integrated REST APIs provided by the client into the web application.",
-    "Focused on virtualization to handle dynamic updates in the DOM.",
-    // "Engaged in GitHub source control activities such as push, pull, branch merges, and PR approvals.",
-    "Employed Jest for unit testing to ensure code quality.",
+  const jobs = [
+    {
+      company: "Innings2 Pvt Ltd",
+      title: "AI Engineer",
+      period: "May 2025 - Present",
+      points: [
+        "Architecting a multi-agent orchestration platform using the Agno framework and FastAPI, enabling LLM-powered task-specific agents, real-time dashboards, and automated data workflows.",
+        "Designed a pluggable agent-tool architecture with dynamic agents and tools (schema loaders, data analysts, dashboard generators).",
+        "Co-designed the distributed task scheduler for recurring and trigger-based agent workflows.",
+        "Implemented MinIO signed URLs for time-bound, secure access to AI-generated artifacts.",
+        "Engineered centralized structured logging with log rotation for production-grade observability.",
+        "Integrated cURL command execution so agents can call external APIs through natural language workflows.",
+      ],
+    },
+    {
+      company: "Psiog Digital Pvt Ltd",
+      title: "Software Engineer",
+      period: "Jun 2022 - May 2025",
+      points: [
+        "Built scalable React frontends integrated with AWS services (Lambda, API Gateway, EC2, S3, DynamoDB).",
+        "Specialized in virtualized UIs, optimizing DOM rendering and data handling for large datasets, for a 60% performance improvement.",
+        "Built and deployed a customized documentation platform using Docusaurus within 3 months.",
+        "Raised unit and integration test coverage from 60% to 87%.",
+      ],
+    },
   ];
 
   return (
@@ -94,7 +108,8 @@ function Worked({ setExpRef }) {
             </Box>
             <CustomDivider />
           </Box>
-          <Grid container>
+          {jobs.map((job) => (
+          <Grid container key={job.company}>
             {isMdScreen ? (
               <Box
                 className="roboto"
@@ -107,7 +122,7 @@ function Worked({ setExpRef }) {
                   mb: "20px",
                 }}
               >
-                PSIOG Digital Ltd
+                {job.company}
               </Box>
             ) : (
               <Grid item xs={3}>
@@ -121,7 +136,7 @@ function Worked({ setExpRef }) {
                     cursor: "pointer",
                   }}
                 >
-                  PSIOG Digital Ltd
+                  {job.company}
                 </Box>
               </Grid>
             )}
@@ -137,7 +152,7 @@ function Worked({ setExpRef }) {
                   whiteSpace: "nowrap",
                 }}
               >
-                Software Engineer
+                {job.title}
               </Box>
               <Box
                 className="roboto"
@@ -147,11 +162,11 @@ function Worked({ setExpRef }) {
                   mb: "20px",
                 }}
               >
-                June 2023 - Present
+                {job.period}
               </Box>
-              {projectExperience.map((item) => {
+              {job.points.map((item) => {
                 return (
-                  <Box sx={{ display: "flex" }}>
+                  <Box sx={{ display: "flex" }} key={item}>
                     <Box sx={{ paddingRight: "10px" }}>
                       <PlayArrowIcon
                         style={{ color: "#64FFDA", fontSize: "12px" }}
@@ -168,6 +183,7 @@ function Worked({ setExpRef }) {
               })}
             </Grid>
           </Grid>
+          ))}
         </Box>
       </Grid>
       <Grid item xs={1}></Grid>
