@@ -6,7 +6,7 @@ import { batchIn, reduced } from "../lib";
 // Newest first, as before; rendered oldest-first so the route reads chronologically.
 const jobs = [
   {
-    company: "Innings2",
+    company: "Innings2 Pvt Ltd",
     title: "AI Engineer",
     period: "May 2025 – Present",
     current: true,
