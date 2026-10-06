@@ -9,6 +9,7 @@ import Generator from "../static/generator.png";
 import Pdf from "../static/pdfextractor.png";
 import ManishGPT from "../static/manishgpt.png";
 import Resume from "../static/resume.png";
+import ManishCode from "../static/manishcode.png";
 
 const projects = [
   {
@@ -32,6 +33,16 @@ const projects = [
     blurb: "Tailors a resume to a job description with Claude, section by section, with side-by-side review and a LaTeX-compiled PDF.",
     description:
       "A web app that tailors a resume to a job description with Claude. Sign in with Google, upload a resume PDF and paste a job description. Claude extracts the resume into structured JSON and rewrites the summary, skills, experience and projects section by section. You review each change side by side, accept or reject it, and download a PDF compiled from a LaTeX template with Tectonic. Contact details and education are never sent to the model, and any rewritten section containing a number missing from the original is flagged and defaults to rejected.",
+  },
+  {
+    heading: "manishcode",
+    img: ManishCode,
+    alt: "manishcode GitHub repository: give a local LLM real tools",
+    technologies: ["Python", "Ollama", "MCP", "uv", "Node.js"],
+    githuburl: "https://github.com/B-Manish/manishcode",
+    blurb: "Gives a local Ollama model real tools through MCP servers, in a full-screen terminal chat. Nothing leaves your machine.",
+    description:
+      "A Python CLI that connects a local Ollama model (Llama, Qwen) to any number of MCP servers so it can read files, search the web or triage email in a chat loop, with no cloud LLM or model API keys. Runs a full-screen TUI with slash-command autocomplete, a status bar showing model, connected servers and context usage, and a y/N prompt before any tool that writes or sends. Servers can be connected and dropped mid-session to keep the tool count low for small context windows, and large tool results are trimmed to fit. Installs with a single uv command.",
   },
   {
     heading: "PDF Invoice Extractor",
