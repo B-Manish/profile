@@ -9,6 +9,12 @@ const otherprojects = [
     skills: ["React", "FakeStore API", "Context API", "MUI"],
   },
   {
+    heading: "Cloud Food Ordering",
+    description:
+      "A full-stack food ordering app with a React frontend and FastAPI backend, hosted on AWS: Lambda for serverless functions, API Gateway for routing, EC2 and DynamoDB for compute and data, and S3 for storage.",
+    skills: ["React", "FastAPI", "Lambda", "API Gateway", "Amplify", "EC2", "DynamoDB"],
+  },
+  {
     heading: "Clone of Cricbuzz",
     description: "A Cricbuzz clone where an admin creates matches and fans follow live scores in the app.",
     skills: ["Angular", ".NET", "Swagger"],

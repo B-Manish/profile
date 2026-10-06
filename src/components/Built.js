@@ -4,7 +4,6 @@ import Builtcard from "./Builtcard";
 import CustomModal from "./CustomModal";
 import { batchIn } from "../lib";
 import Npm from "../static/npm.png";
-import Swiggy from "../static/swiggy.png";
 import Generator from "../static/generator.png";
 import Pdf from "../static/pdfextractor.png";
 import ManishGPT from "../static/manishgpt.png";
@@ -63,16 +62,6 @@ const projects = [
     blurb: "Type in your details, get a personal website hosted on Netlify with its own shareable URL.",
     description:
       "Developed a dynamic profile website generator using React, enabling users to input their personal details—such as name, experience, projects, and hobbies—and automatically generate a personalized website. The application hosts the website on Netlify and provides users with a unique URL for easy access and sharing.",
-  },
-  {
-    heading: "Cloud Food Ordering",
-    img: Swiggy,
-    alt: "Food ordering app home with restaurant cards",
-    technologies: ["React", "FastAPI", "Lambda", "API Gateway", "Amplify", "EC2", "DynamoDB"],
-    githuburl: "https://github.com/B-Manish/FullStackApp",
-    blurb: "Full-stack food ordering: React up front, FastAPI on Lambda, API Gateway, EC2, DynamoDB and S3 behind.",
-    description:
-      "Developed a full-stack food ordering application using React for the frontend and FastAPI for the backend. The backend APIs are hosted on AWS, utilizing Lambda for serverless functions, API Gateway for routing, EC2 and DynamoDB for compute, and S3 for storage.",
   },
   {
     heading: "react-virtualize-manish",
